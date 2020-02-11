@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cktv.mapper.PublishMapper">
+<select id="selectByPrimaryKey" resultType="com.cktv.domain.Publish">
+select *from publish where publish_id=#{publish_id}
+</select>
+
+<select id="selectPublishsByUser_id" parameterType="java.lang.Long" resultType="com.cktv.domain.Publish">
+        select * from publish where user_id = #{user_id}
+</select>
+
+<select id="selectAll" resultType="com.cktv.domain.Publish">
+select *from publish
+</select>
+
+<select id="select_all_user_publish_names" resultType="String">
+        SELECT
+        publish_name
+        FROM publish
+        where user_id=#{user_id}
+</select>
+    <select id="selectPublishsByUser_idByPage" resultType="com.cktv.domain.Publish">
+        select *
+        from publish
+       where user_id=#{user_id}
+        Limit #{offset},#{limit}
+
+
+    </select>
+
+<select id="selectPublishscountByUser_id" resultType="int">
+    select COUNT(*)
+    FROM publish
+    where user_id=#{user_id}
+ </select>
+    <select id="selectPublishscountByUser_idAndScreen_mode" resultType="int">
+        select COUNT(*)
+        FROM publish
+        where user_id=#{user_id} AND publish_screen_mode=#{publish_screen_mode}
+    </select>
+<!--根据屏幕模式查询-->
+    <select id="selectPublishsByScreen_mode" resultType="com.cktv.domain.Publish">
+        SELECT * FROM publish
+        WHERE user_id=#{user_id} AND publish_screen_mode=#{publish_screen_mode}
+        Limit #{offset},#{limit}
+    </select>
+<insert id="insertPublish" >
+INSERT into publish  (publish_time,update_time,start_time,end_time,user_id,duration,tpl_count,publish_name,publish_status,publish_screen_mode) values  (#{publish_time},#{update_time},#{start_time},#{end_time},#{user_id},#{duration},#{tpl_count},#{publish_name},#{publish_status},#{publish_screen_mode})
+</insert>
+
+<update id="updateByPrimaryKey" >
+update publish set publish_time = #{publish_time},update_time = #{update_time},start_time = #{start_time},end_time = #{end_time},user_id = #{user_id},duration = #{duration},tpl_count = #{tpl_count},publish_name = #{publish_name},publish_status = #{publish_status},publish_screen_mode=#{publish_screen_mode} where publish_id=#{publish_id}
+</update>
+    <!--通过主键删除publish-->
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from publish
+        where publish_id = #{publish_id}
+    </delete>
+    <update id="updatePublish_statusBypublish_id">
+        update publish
+        set publish_status = #{publish_status}
+        where publish_id = #{publish_id}
+    </update>
+
+    <select id="selectPublishByPublish_name" resultType="com.cktv.domain.Publish">
+        select * from publish where publish_name = #{publish_name}
+    </select>
+    <select id="selectOnPlayingPublishsByPublish_ids"  resultType="com.cktv.domain.Publish">
+        select * FROM publish  WHERE     publish_status=1 AND
+        publish_id
+        IN
+        <foreach item="item" index="index" collection="array"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+    <update id="updateStart_timeEnd_time">
+        update publish
+        SET
+        start_time=#{start_time},
+        end_time=#{end_time}
+        where publish_id=#{publish_id}
+    </update>
+
+    <update id="updateStart_time">
+        update publish
+        SET
+        start_time= #{start_time}
+        where publish_id =#{publish_id}
+    </update>
+
+    <update id="updateEnd_time">
+        update publish
+        SET
+        end_time= #{end_time}
+        where publish_id =#{publish_id}
+    </update>
+</mapper>

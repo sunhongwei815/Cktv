@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form name="Form2" action="/Cktv/file/fileUpload" id="form" method="post"  enctype="multipart/form-data">
+    <h1>使用spring mvc提供的类的方法上传文件</h1>
+    <input type="file" name="file">
+    <input id="submit" type="button" value="upload"/>
+</form>
+</body>
+<script type="text/javascript" src="/Cktv/libs/jquery/dist/jquery.min.js"></script>
+<script>
+    $("#submit").on("click",function () {
+
+            var form = document.getElementById('form');
+        var formData = new FormData(form);
+            $.ajax({
+                url: '/Cktv/file/fileUpload',
+                data: formData,
+                processData: false,
+                contentType : false,
+                type: 'POST',
+                success: function(response) {
+                    console.info(response);
+                }
+            });
+
+            return false;
+    });
+</script>
+</html>

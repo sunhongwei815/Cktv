@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cktv.mapper.VideoMapper">
+    <select id="selectVideosCount" resultType="int">
+        select count(*) from video
+    </select>
+    <select id="seleteAllVideosByPage" resultType="com.cktv.domain.Video">
+        select * from video
+        Limit #{offset},#{limit}
+        </select>
+<insert id="insertVideo">
+    insert video (video_url,video_name,upload_time,video_thumb_url,video_time_length) VALUES (#{video_url},#{video_name},#{upload_time},#{video_thumb_url},#{video_time_length})
+    </insert>
+<delete id="deleteVideoByVideo_id">
+        delete  from video where video_id= #{video_id}
+</delete>
+    <delete id="deleteVideos">
+        delete from video where video_id
+        IN
+        <foreach item="item" index="index" collection="array"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+    <select id="selectByPrimaryKey" resultType="com.cktv.domain.Video">
+        select * from video where video_id=#{video_id}
+    </select>
+    </mapper>

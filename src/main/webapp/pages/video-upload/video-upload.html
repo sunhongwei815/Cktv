@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>视频上传</title>
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/video-upload.css">
+</head>
+<body>
+<!--头部和侧边栏-->
+#parse ("/pages/common/header.html")
+#parse ("/pages/common/common-left1.html")
+<!--总体右侧-->
+<div id="right">
+    <div class="right">
+        <div class="right_head">
+            <a>内容管理</a>
+            <span>/</span>
+            <a class="link_name">视频管理</a>
+            <span>/</span>
+            <a class="left_link">视频上传</a>
+        </div>
+        <div class="right_body">
+            <div class="main-content">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th> <input type="checkbox" id="SelectAll"></th>
+                            <th>更新时间</th>
+                            <th>文件名</th>
+                            <th>视频</th>
+                            <th>时长</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="table-list">
+                        </tbody>
+                    </table>
+                    <div class="tcdPageCode fenye">
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="container-btn" style="overflow: hidden">
+                       <form id= "uploadForm">
+                        <a href="javascript:;" class="file btn btn-primary">选择文件
+                            <input type="file" name="file" id="fileId" multiple="multiple" accept="audio/mp4, video/mp4">
+                        </a>
+                           <button class="btn btn-primary operate-type deletee">删除</button>
+                           <div class="submit">
+                               <input class="btn btn-primary" id="submit" type="button" onclick="doUpload()" value="确定上传">
+                               <input class="btn btn-primary" id="close" type="button" value="取消上传">
+                           </div>
+                       </form>
+                    </div>
+                </div>
+             </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+        </div>
+</div>
+<script id="video_list_template" type="text/x-handlebars-template">
+    {{#each this}}
+    <tr>
+        <td>
+            <input type="checkbox" name="mycheck" video_id="{{video_id}}" value="{{screen_name}}">
+        </td>
+        <td>{{upload_time}}</td>
+        <td>{{video_name}}</td>
+        <td><a href="#" video_url="{{video_url}}" class="video"><img src="{{video_thumb_url}}" class="image"></a></td>
+        <td>{{video_time_length}}</td>
+        <td><button class="btn btn-primary operate-type delete" video_id="{{video_id}}" class="video_id">删除</button></td>
+    </tr>
+    {{/each}}
+</script>
+
+<script type="text/javascript" src="../../libs/jquery.js"></script>
+<script type="text/javascript" src = "../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../libs/layer-v2.2/layer/layer.js"></script>
+<script type="text/javascript" src="../../libs/handlebars-v4.0.5.js"></script>
+<script type="text/javascript" src="../../src/scripts/video-upload/video-upload.js"></script>
+<script type="text/javascript" src="../../src/scripts/common/ajax.js"></script>
+<script type="text/javascript" src ="../../src/scripts/common/common1_1.js"></script>
+<script src="../../src/scripts/jquery.page.js"></script>
+</body>
+</html>

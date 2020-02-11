@@ -1,0 +1,8 @@
+<html>
+    <head>
+        <title>$!page_title</title>
+    </head>
+    <body>
+      $screen_content
+    </body>
+</html>

@@ -1,0 +1,2 @@
+[cktv:error][ERROR] [2016-05-16 10:20:45] org.apache.velocity.runtime.log.CommonsLogLogChute.log(96) | Left side ($publish.is_only) of '>' operation has null value at /display-manage/add-info.html[line 238, column 64]
+[cktv:error][ERROR] [2016-05-16 10:30:09] com.cktv.exception.handle.MyExceptionResolver.doResolveException(55) | [error]com.cktv.util.exception.MessageException: ??????????/Users/jsf/Desktop/IDEAProjects/Cktv/src/main/webapp/pages/tpl/test????\r\n[exception]

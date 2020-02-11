@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        body{
+            background-color: #3e8f3e;
+        }
+        #center{
+            width:200px;
+            height:200px;
+            background-color: #00b3ee;
+            position: absolute;
+        }
+        .ui-resizable-l{
+            position: absolute;
+            left: -10px;
+            top:0px;
+            width:20px;
+            height: 100%;
+            background-color: #000;
+            cursor: w-resize;
+        }
+        .ui-resizable-r{
+            position: absolute;
+            right: -10px;
+            top:0px;
+            width:20px;
+            height: 100%;
+            background-color: #000;
+            cursor: e-resize;
+        }
+        .ui-resizable-t{
+            position: absolute;
+            left: 0px;
+            top: -10px;
+            width: 100%;
+            height: 20px;
+            background-color: #000;
+            cursor: n-resize;
+        }
+        .ui-resizable-b{
+            position: absolute;
+            left: 0px;
+            bottom: -10px;
+            width: 100%;
+            height: 20px;
+            background-color: #000;
+            cursor: s-resize;
+        }
+        .ui-resizable-lt{
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            cursor: nw-resize;
+        }
+        .ui-resizable-rt{
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            cursor: ne-resize;
+        }
+        .ui-resizable-lb{
+            position: absolute;
+            left: -10px;
+            bottom: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            cursor: sw-resize;
+        }
+        .ui-resizable-rb{
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            cursor: se-resize;
+        }
+    </style>
+</head>
+<body>
+<div id="center"></div>
+<script>
+    window.onload = function () {
+        var addCtrl = function (el) {
+            var l = document.createElement("div");
+            var r = document.createElement("div");
+            var t = document.createElement("div");
+            var b = document.createElement("div");
+            var lt = document.createElement("div");
+            var rt = document.createElement("div");
+            var lb = document.createElement("div");
+            var rb = document.createElement("div");
+            l.class = l.className = "ui-resizable-l ui-resizable-ctrl";
+            r.class = r.className = "ui-resizable-r ui-resizable-ctrl";
+            t.class = t.className = "ui-resizable-t ui-resizable-ctrl";
+            b.class = b.className = "ui-resizable-b ui-resizable-ctrl";
+            lt.class = lt.className = "ui-resizable-lt ui-resizable-ctrl";
+            rt.class = rt.className = "ui-resizable-rt ui-resizable-ctrl";
+            lb.class = lb.className = "ui-resizable-lb ui-resizable-ctrl";
+            rb.class = rb.className = "ui-resizable-rb ui-resizable-ctrl";
+
+            l.id= "ui-resizable-l";
+            r.id = "ui-resizable-r";
+            t.id = "ui-resizable-t";
+            b.id = "ui-resizable-b";
+            lt.id = "ui-resizable-lt";
+            rt.id = "ui-resizable-rt";
+            lb.id = "ui-resizable-lb";
+            rb.id = "ui-resizable-rb";
+            el.appendChild(l);
+            el.appendChild(r);
+            el.appendChild(t);
+            el.appendChild(b);
+            el.appendChild(lt);
+            el.appendChild(rt);
+            el.appendChild(lb);
+            el.appendChild(rb);
+        };
+        addCtrl(document.getElementById('center'));
+
+
+        /*var Sys = (function(ua){
+         var s = {};
+         s.IE = ua.match(/msie ([\d.]+)/) ? true : false;
+         s.Firefox = ua.match(/firefox\/([\d.]+)/) ? true : false;
+         s.Chrome = ua.match(/chrome\/([\d.]+)/) ? true : false;
+         s.IE6 = (s.IE && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == 6)) ? true : false;
+         s.IE7 = (s.IE && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == 7)) ? true : false;
+         s.IE8 = (s.IE && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == 8)) ? true : false;
+         return s;
+         })(navigator.userAgent.toLowerCase());*/
+
+        var Sys = function (ua) {
+            var s = {};
+            s.IE = ua.match(/msie ([\d.]+)/) ? true : false;
+            s.Firefox = ua.match(/firefox\/([\d.]+)/) ? true : false;
+            s.Chrome = ua.match(/chrome\/([\d.]+)/) ? true : false;
+            s.IE6 = (s.IE && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == 6)) ? true : false;
+            s.IE7 = (s.IE && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == 7)) ? true : false;
+            s.IE8 = (s.IE && ([/MSIE (\d)\.0/i.exec(navigator.userAgent)][0][1] == 8)) ? true : false;
+            return s;
+        };
+
+
+        var $ = function (id) {
+            return document.getElementById(id);
+        };
+        var Css = function(e,o){
+            for(var i in o)
+                e.style[i] = o[i];
+        };
+//        未使用Extend这个函数
+        var Extend = function(destination, source) {
+            for (var property in source) {
+                destination[property] = source[property];
+            }
+        };
+        var Bind = function(object, fun) {
+            var args = Array.prototype.slice.call(arguments).slice(2);
+            return function() {
+                return fun.apply(object, args);
+            }
+        };
+        var BindAsEventListener = function(object, fun) {
+            var args = Array.prototype.slice.call(arguments).slice(2);
+            return function(event) {
+                return fun.apply(object, [event || window.event].concat(args));
+            }
+        };
+        var CurrentStyle = function(ele){
+            var style = null;
+            if(window.getComputedStyle){
+                style = window.getComputedStyle(ele,null);
+            }else{
+                style = ele.currentStyle;
+            }
+            return style;
+        };
+        function addListener(element,e,fn){
+            element.addEventListener?element.addEventListener(e,fn,false):element.attachEvent("on" + e,fn);
+        };
+        function removeListener(element,e,fn){
+            element.removeEventListener?element.removeEventListener(e,fn,false):element.detachEvent("on" + e,fn)
+        };
+        var Class = function(properties){
+            var _class = function(){
+                return (arguments[0] !== null && this.initialize && typeof(this.initialize) == 'function') ? this.initialize.apply(this, arguments) : this;};
+            _class.prototype = properties;
+            return _class;
+        };
+        var Resize =new Class({
+            initialize : function(obj){
+                this.obj = obj;
+                this.resizeelm = null;
+                this.fun = null; //记录触发什么事件的索引
+                this.original = []; //记录开始状态的数组
+                this.width = null;
+                this.height = null;
+                this.fR = BindAsEventListener(this,this.resize);
+                this.fS = Bind(this,this.stop);
+            },
+            set : function(elm,direction){
+                if(!elm)return;
+                this.resizeelm = elm;
+                addListener(this.resizeelm,'mousedown',BindAsEventListener(this, this.start, this[direction]));
+                return this;
+            },
+            start : function(e,fun){
+                this.fun = fun;
+                this.original = [parseInt(CurrentStyle(this.obj).width),parseInt(CurrentStyle(this.obj).height),parseInt(CurrentStyle(this.obj).left),parseInt(CurrentStyle(this.obj).top)];
+                this.width = (this.original[2]||0) + this.original[0];
+                this.height = (this.original[3]||0) + this.original[1];
+                addListener(document,"mousemove",this.fR);
+                addListener(document,'mouseup',this.fS);
+            },
+            resize : function(e){
+                this.fun(e);
+                Sys(navigator.userAgent.toLowerCase()).IE?(this.resizeelm.onlosecapture=function(){this.fS()}):(this.resizeelm.onblur=function(){this.fS()})
+            },
+            stop : function(){
+                removeListener(document, "mousemove", this.fR);
+                removeListener(document, "mousemove", this.fS);
+                window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+            },
+            up : function(e){
+                this.height > e.clientY ? Css(this.obj,{top:e.clientY + "px",height:this.height-e.clientY + "px"}) : this.turnDown(e);
+            },
+            down : function(e){
+                e.clientY > this.original[3] ? Css(this.obj,{top:this.original[3]+'px',height:e.clientY-this.original[3]+'px'}) : this.turnUp(e);
+            },
+            left : function(e){
+                e.clientX
+            },
+            right : function(e){
+                e.clientX>this.original[2]?Css(this.obj,{left:this.original[2]+'px',width:e.clientX-this.original[2]+"px"}):this.turnLeft(e)   ;
+            },
+            leftUp:function(e){
+                this.up(e);this.left(e);
+            },
+            leftDown:function(e){
+                this.left(e);this.down(e);
+            },
+            rightUp:function(e){
+                    this.up(e);this.right(e);
+            },
+            rightDown:function(e){
+                this.right(e);this.down(e);
+            },
+
+            turnDown : function(e){
+                Css(this.obj,{top:this.height+'px',height:e.clientY - this.height + 'px'});
+            },
+            turnUp : function(e){
+                Css(this.obj,{top : e.clientY +'px',height : this.original[3] - e.clientY +'px'});
+            },
+            turnRight : function(e){
+                Css(this.obj,{left:this.width+'px',width:e.clientX- this.width +'px'});
+            },
+            turnLeft : function(e){
+                Css(this.obj,{left:e.clientX +'px',width:this.original[2]-e.clientX+'px'});
+            }
+        });
+
+        new Resize($('center'))
+                .set($('ui-resizable-t'),'up')
+                .set($('ui-resizable-b'),'down')
+                .set($('ui-resizable-l'),'left')
+                .set($('ui-resizable-r'),'right')
+                .set($('ui-resizable-lt'),'leftUp')
+                .set($('ui-resizable-lb'),'leftDown')
+                .set($('ui-resizable-rb'),'rightDown')
+                .set($('ui-resizable-rt'),'rightUp');
+
+        console.log($('center'));
+        console.log($('ui-resizable-t'));
+    }
+</script>
+</body>
+</html>

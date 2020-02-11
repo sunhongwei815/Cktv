@@ -1,0 +1,86 @@
+.border{
+  border:1px solid #eeeeee;
+}
+.rounded-corners(@radius:5px){
+  border-radius:@radius;
+  -webkit-border-radius:@radius;
+  -moz-border-radius: @radius;
+}
+@color:#eee;
+*{
+  margin: 0;
+  padding: 0;
+}
+.header{
+  width:100%;
+  height: 60px;
+  background-color: @color;
+}
+.sidebar{
+  width: 255px;
+  height: 500px;
+  background-color: @color;
+  float: left;
+}
+.main{
+  margin-left:255px;
+  padding: 20px;
+}
+.main-nav{
+  .rounded-corners;
+  background-color: @color;
+  width:100%;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom:20px;
+}
+.main-content{
+  .border;
+  padding: 20px;
+}
+.container-search{
+  margin: 20px auto;
+  form{
+    fieldset{
+      .screen{
+        margin-left: 75px;
+      }
+      input{
+        .rounded-corners;
+      }
+      label{
+        margin-right:10px;
+      }
+      button{
+
+      }
+    }
+  }
+}
+table{
+  text-align: center;
+}
+.container-btn{
+  button{
+    width: 80px;
+  }
+}
+.panel-heading{
+  i{
+    float:right;
+  }
+}
+#myTab{
+  height: 42px;
+}
+.tab-content{
+  width:80%;
+  margin:0 auto;
+  table{
+    border-bottom: 1px solid #eeeeee;
+  }
+  table>tbody>tr>td{
+    border-top:1px solid white;
+    text-align: left;
+  }
+}

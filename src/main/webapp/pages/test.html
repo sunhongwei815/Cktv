@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../libs/jquery.js"></script>
+<script src="../src/scripts/common/ajax.js"></script>
+<script>
+    var part_id = 120;
+    var url = '/Cktv/open/api/v2/'+part_id;
+    $.ajax({
+        url:
+    }
+            ,{
+        "method": "get_ds_player_schedule",
+        "params":{
+            "device_did":"CKDZ_71e81916fa22c89"
+        },
+        "auth":{
+            "auth_id":1,
+            "auth_token":1
+        },
+        "req_id":1
+    },function(data){
+        var getData = JSON.parse(data);
+        console.log(getData);
+    });
+  </script>
+</body>
+</html>

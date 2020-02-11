@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>轮播</title>
+    <link rel="stylesheet" href="/Cktv/pages/carousel/supersized.css" type="text/css" media="screen"/>
+</head>
+
+<body>
+<!--Loading display while images load-->
+<div id="loading">&nbsp;</div>
+
+<!--Slides-->
+<div id="supersized"></div>
+
+<div id="prevthumb"></div>
+<div id="nextthumb"></div>
+
+
+<!--Control Bar-->
+<div id="controls-wrapper">
+    <div id="controls">
+
+        <!--Slide counter-->
+        <div id="slidecounter">
+            <span class="slidenumber"></span>/<span class="totalslides"></span>
+        </div>
+
+        <!--Slide captions displayed here-->
+        <div id="slidecaption"></div>
+
+        <!--Navigation-->
+        <div id="navigation">
+            <img id="prevslide" src="/Cktv/pages/carousel/images/back_dull.png"/><img id="pauseplay" src="/Cktv/pages/carousel/images/pause_dull.png"/><img
+                id="nextslide" src="/Cktv/pages/carousel/images/forward_dull.png"/>
+        </div>
+
+        <a href="http://www.buildinternet.com" class="stamp"><img src="/Cktv/pages/carousel/images/supersized-logo.png"/></a>
+
+    </div>
+</div>
+More script and css style
+: <a href="http://www.html580.com/"
+     title="HTML DRIVE - Free DHMTL Scripts,Jquery plugins,Javascript,CSS,CSS3,Html5 Library">www.html580.com </a>
+
+
+</body>
+<script type="text/javascript" src="/Cktv/libs/jquery.js"></script>
+<script src="/Cktv/pages/carousel/js/effects.core.js"></script>
+<script src="/Cktv/pages/carousel/js/effects.slide.js"></script>
+<script type="text/javascript" src="/Cktv/pages/carousel/supersized.3.0.js"></script>
+<script>
+    $(function () {
+        $.fn.supersized.options = {
+            startwidth: 640,
+            startheight: 480,
+            vertical_center: 1,
+            slideshow: 1,
+            navigation: 1,
+            thumbnail_navigation: 1,
+            transition: 1, //0-None, 1-Fade, 2-slide top, 3-slide right, 4-slide bottom, 5-slide left
+            pause_hover: 0,
+            slide_counter: 1,
+            slide_captions: 1,
+            slide_interval: 3000,
+            slides: [
+                    #foreach($element in ${list})
+                     {
+                        image: '$element',
+                       title: 'City Clock Tower',
+                         url: '$element'
+                      },
+            #end
+            ]
+        };
+        $('#supersized').supersized();
+    });
+</script>
+
+</html>

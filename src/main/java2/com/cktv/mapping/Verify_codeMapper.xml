@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cktv.mapper.Verify_codeMapper">
+
+
+    <select id="selectByPrimaryKey" resultType="com.cktv.domain.Verify_code" >
+        select *from verify_code where verify_code=#{verify_code}
+    </select>
+
+    <select id="selectByVerify_code_id" resultType="com.cktv.domain.Verify_code">
+        select * from verify_code where verify_code_id = #{verify_code_id}
+    </select>
+
+    <select id="selectVerify_codeByIs_register" resultType="com.cktv.domain.Verify_code" parameterType="java.lang.Long">
+        select * from verify_code where is_register = #{is_register} limit #{count}, #{pageSize}
+    </select>
+
+    <select id="selectLengthOfVerify_code" resultType="java.lang.Long" parameterType="java.lang.Long">
+        select count(*) from verify_code where is_register = #{is_register}
+    </select>
+
+    <insert id="insertVerify_code" parameterType="com.cktv.domain.Verify_code">
+        INSERT verify_code  (verify_code,is_register,verify_date,verify_time,device_did) values  (#{verify_code},#{is_register},#{verify_date},#{verify_time},#{device_did})
+    </insert>
+
+    <update id="updateByPrimaryKey">
+        update verify_code set verify_code = #{verify_code},is_register = #{is_register},verify_date = #{verify_date},verify_time = #{verify_time},device_did = #{device_did} where verify_code_id=#{verify_code_id}
+    </update>
+
+    <update id="updateVerify_codeIs_register">
+        update verify_code
+        <set>
+            <if test="is_register!=null">is_register=#{is_register} </if>
+        </set>
+        where
+        <if test="verify_code_id!=null">verify_code_id=#{verify_code_id} </if>
+    </update>
+
+    <delete id="deleteVerify_codeByVerify_code_id">
+        delete from verify_code
+        where verify_code_id in
+        <foreach item="item" index="index" collection="verify_code_ids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+</mapper>

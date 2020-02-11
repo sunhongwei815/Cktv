@@ -1,0 +1,119 @@
+.border {
+  border: 1px solid #eeeeee;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  width: 100%;
+  height: 60px;
+  background-color: #eee;
+}
+.sidebar {
+  width: 255px;
+  height: 500px;
+  background-color: #eee;
+  float: left;
+}
+.main {
+  margin-left: 255px;
+  padding: 20px;
+}
+.main-nav {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  background-color: #eee;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 20px;
+}
+.main-content {
+  border: 1px solid #eeeeee;
+  padding: 20px;
+}
+.container-search {
+  margin: 20px auto;
+}
+.container-search form fieldset .screen {
+  margin-left: 75px;
+}
+.container-search form fieldset input {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+.container-search form fieldset label {
+  margin-right: 10px;
+}
+table {
+  text-align: center;
+}
+.container-btn button {
+  width: 80px;
+}
+.panel-heading i {
+  float: right;
+}
+#myTab {
+  height: 42px;
+}
+.tab-content {
+  width: 80%;
+  margin: 0 auto;
+}
+.tab-content table {
+  border-bottom: 1px solid #eeeeee;
+}
+.tab-content table > tbody > tr > td {
+  border-top: 1px solid white;
+  text-align: left;
+}
+.fenye {
+  padding: 15px 20px;
+  text-align: left;
+  color: #ccc;
+  position: absolute;
+  right: 10px;
+}
+.fenye a {
+  color: #428bca;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  margin: 0 2px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.fenye a:hover {
+  text-decoration: none;
+  border: 1px solid #428bca;
+}
+.fenye span.current {
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  margin: 0 2px;
+  color: #fff;
+  background-color: #428bca;
+  border: 1px solid #428bca;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.fenye span.disabled {
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  margin: 0 2px;
+  color: #bfbfbf;
+  background: #f2f2f2;
+  border: 1px solid #bfbfbf;
+  border-radius: 4px;
+  vertical-align: middle;
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="GBK" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!--<properties resource="com/cktv/generatorConfig/generator.properties"/>-->
+    <!--加载数据库连接驱动包-->
+    <!--<classPathEntry location="/Users/jsf/Desktop/项目以及研究生事务/mavenRepository/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar" />-->
+    <classPathEntry location="E:/git/jar/mavenRepository/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar" />
+    <context id="MySQLTable" targetRuntime="MyBatis3" >
+
+        <!-- 为了防止生成的代码中有很多注释，比较难看，加入下面的配置控制 -->
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://121.251.19.130:3306/cktv"
+                        userId="root"
+                        password="615615" />
+        <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        <!--Model存放位置-->
+        <javaModelGenerator targetPackage="com.cktv.domain" targetProject="src" />
+        <!--Mapper xml文件存放位置-->
+        <sqlMapGenerator targetPackage="com.cktv.mapping" targetProject="src" />
+        <!--Mapper 接口存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.cktv.dao" targetProject="src" />
+
+        <!--配置需要用到的数据表-->
+        <table  tableName="publish_device" domainObjectName="PublishDevice"
+
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table  tableName="user" domainObjectName="User"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table  tableName="device" domainObjectName="Device"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table  tableName="publish" domainObjectName="Publish"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table  tableName="publish_tpl" domainObjectName="PublishTpl"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table  tableName="tpl" domainObjectName="Tpl"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="device_sche_v" domainObjectName="Device_sche_v"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,466 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@3.9.5
+3 info using node@v6.2.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly install loadAllDepsIntoIdealTree
+19 silly fetchNamedPackageData bootstrap
+20 silly mapToRegistry name bootstrap
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry data Result {
+23 silly mapToRegistry   raw: 'bootstrap',
+23 silly mapToRegistry   scope: null,
+23 silly mapToRegistry   name: 'bootstrap',
+23 silly mapToRegistry   rawSpec: '',
+23 silly mapToRegistry   spec: 'latest',
+23 silly mapToRegistry   type: 'tag' }
+24 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+25 silly fetchNamedPackageData handlebars
+26 silly mapToRegistry name handlebars
+27 silly mapToRegistry using default registry
+28 silly mapToRegistry registry https://registry.npmjs.org/
+29 silly mapToRegistry data Result {
+29 silly mapToRegistry   raw: 'handlebars',
+29 silly mapToRegistry   scope: null,
+29 silly mapToRegistry   name: 'handlebars',
+29 silly mapToRegistry   rawSpec: '',
+29 silly mapToRegistry   spec: 'latest',
+29 silly mapToRegistry   type: 'tag' }
+30 silly mapToRegistry uri https://registry.npmjs.org/handlebars
+31 silly fetchNamedPackageData jquery
+32 silly mapToRegistry name jquery
+33 silly mapToRegistry using default registry
+34 silly mapToRegistry registry https://registry.npmjs.org/
+35 silly mapToRegistry data Result {
+35 silly mapToRegistry   raw: 'jquery',
+35 silly mapToRegistry   scope: null,
+35 silly mapToRegistry   name: 'jquery',
+35 silly mapToRegistry   rawSpec: '',
+35 silly mapToRegistry   spec: 'latest',
+35 silly mapToRegistry   type: 'tag' }
+36 silly mapToRegistry uri https://registry.npmjs.org/jquery
+37 verbose request uri https://registry.npmjs.org/bootstrap
+38 verbose request no auth needed
+39 info attempt registry request try #1 at 15:50:28
+40 verbose request id 09d768fc2b75399e
+41 http request GET https://registry.npmjs.org/bootstrap
+42 verbose request uri https://registry.npmjs.org/handlebars
+43 verbose request no auth needed
+44 info attempt registry request try #1 at 15:50:28
+45 verbose etag "26PTZ9XJROVONNHK7PBCC5C6D"
+46 http request GET https://registry.npmjs.org/handlebars
+47 verbose request uri https://registry.npmjs.org/jquery
+48 verbose request no auth needed
+49 info attempt registry request try #1 at 15:50:28
+50 verbose etag "DY95A9JT1XPH46TIAR0Q1XM1Z"
+51 http request GET https://registry.npmjs.org/jquery
+52 http 200 https://registry.npmjs.org/jquery
+53 verbose headers { server: 'nginx/1.10.1',
+53 verbose headers   'content-type': 'application/json',
+53 verbose headers   'last-modified': 'Wed, 23 Nov 2016 22:15:47 GMT',
+53 verbose headers   etag: 'W/"58361513-147e1"',
+53 verbose headers   'content-encoding': 'gzip',
+53 verbose headers   'cache-control': 'max-age=300',
+53 verbose headers   'content-length': '9882',
+53 verbose headers   'accept-ranges': 'bytes',
+53 verbose headers   date: 'Fri, 25 Nov 2016 07:50:29 GMT',
+53 verbose headers   via: '1.1 varnish',
+53 verbose headers   age: '0',
+53 verbose headers   connection: 'keep-alive',
+53 verbose headers   'x-served-by': 'cache-lax8640-LAX',
+53 verbose headers   'x-cache': 'HIT',
+53 verbose headers   'x-cache-hits': '1',
+53 verbose headers   'x-timer': 'S1480060229.548545,VS0,VE135',
+53 verbose headers   vary: 'Accept-Encoding' }
+54 silly get cb [ 200,
+54 silly get   { server: 'nginx/1.10.1',
+54 silly get     'content-type': 'application/json',
+54 silly get     'last-modified': 'Wed, 23 Nov 2016 22:15:47 GMT',
+54 silly get     etag: 'W/"58361513-147e1"',
+54 silly get     'content-encoding': 'gzip',
+54 silly get     'cache-control': 'max-age=300',
+54 silly get     'content-length': '9882',
+54 silly get     'accept-ranges': 'bytes',
+54 silly get     date: 'Fri, 25 Nov 2016 07:50:29 GMT',
+54 silly get     via: '1.1 varnish',
+54 silly get     age: '0',
+54 silly get     connection: 'keep-alive',
+54 silly get     'x-served-by': 'cache-lax8640-LAX',
+54 silly get     'x-cache': 'HIT',
+54 silly get     'x-cache-hits': '1',
+54 silly get     'x-timer': 'S1480060229.548545,VS0,VE135',
+54 silly get     vary: 'Accept-Encoding' } ]
+55 verbose get saving jquery to /Users/hws/.npm/registry.npmjs.org/jquery/.cache.json
+56 verbose correctMkdir /Users/hws/.npm correctMkdir not in flight; initializing
+57 silly resolveWithNewModule jquery@2.2.4 checking installable status
+58 silly cache add args [ 'jquery@^2.2.3', null ]
+59 verbose cache add spec jquery@^2.2.3
+60 silly cache add parsed spec Result {
+60 silly cache add   raw: 'jquery@^2.2.3',
+60 silly cache add   scope: null,
+60 silly cache add   name: 'jquery',
+60 silly cache add   rawSpec: '^2.2.3',
+60 silly cache add   spec: '>=2.2.3 <3.0.0',
+60 silly cache add   type: 'range' }
+61 silly addNamed jquery@>=2.2.3 <3.0.0
+62 verbose addNamed ">=2.2.3 <3.0.0" is a valid semver range for jquery
+63 silly addNameRange { name: 'jquery', range: '>=2.2.3 <3.0.0', hasData: false }
+64 silly mapToRegistry name jquery
+65 silly mapToRegistry using default registry
+66 silly mapToRegistry registry https://registry.npmjs.org/
+67 silly mapToRegistry data Result {
+67 silly mapToRegistry   raw: 'jquery',
+67 silly mapToRegistry   scope: null,
+67 silly mapToRegistry   name: 'jquery',
+67 silly mapToRegistry   rawSpec: '',
+67 silly mapToRegistry   spec: 'latest',
+67 silly mapToRegistry   type: 'tag' }
+68 silly mapToRegistry uri https://registry.npmjs.org/jquery
+69 verbose addNameRange registry:https://registry.npmjs.org/jquery not in flight; fetching
+70 verbose get https://registry.npmjs.org/jquery not expired, no request
+71 silly addNameRange number 2 { name: 'jquery', range: '>=2.2.3 <3.0.0', hasData: true }
+72 silly addNameRange versions [ 'jquery',
+72 silly addNameRange   [ '1.5.1',
+72 silly addNameRange     '1.6.2',
+72 silly addNameRange     '1.6.3',
+72 silly addNameRange     '1.7.2',
+72 silly addNameRange     '1.7.3',
+72 silly addNameRange     '1.8.2',
+72 silly addNameRange     '1.8.3',
+72 silly addNameRange     '2.1.0-beta2',
+72 silly addNameRange     '2.1.0-beta3',
+72 silly addNameRange     '1.11.0-beta3',
+72 silly addNameRange     '1.11.0-rc1',
+72 silly addNameRange     '2.1.0-rc1',
+72 silly addNameRange     '1.11.0',
+72 silly addNameRange     '2.1.0',
+72 silly addNameRange     '2.1.1-beta1',
+72 silly addNameRange     '1.11.1-beta1',
+72 silly addNameRange     '2.1.1-rc1',
+72 silly addNameRange     '1.11.1-rc1',
+72 silly addNameRange     '2.1.1-rc2',
+72 silly addNameRange     '1.11.1-rc2',
+72 silly addNameRange     '2.1.1',
+72 silly addNameRange     '1.11.1',
+72 silly addNameRange     '1.9.1',
+72 silly addNameRange     '2.1.2',
+72 silly addNameRange     '1.11.2',
+72 silly addNameRange     '2.1.3',
+72 silly addNameRange     '2.1.4',
+72 silly addNameRange     '1.11.3',
+72 silly addNameRange     '3.0.0-alpha1',
+72 silly addNameRange     '1.12.0',
+72 silly addNameRange     '2.2.0',
+72 silly addNameRange     '3.0.0-beta1',
+72 silly addNameRange     '1.12.1',
+72 silly addNameRange     '2.2.1',
+72 silly addNameRange     '1.12.2',
+72 silly addNameRange     '2.2.2',
+72 silly addNameRange     '1.12.3',
+72 silly addNameRange     '2.2.3',
+72 silly addNameRange     '1.12.4',
+72 silly addNameRange     '2.2.4',
+72 silly addNameRange     '3.0.0-rc1',
+72 silly addNameRange     '3.0.0',
+72 silly addNameRange     '3.1.0',
+72 silly addNameRange     '3.1.1' ] ]
+73 silly addNamed jquery@2.2.4
+74 verbose addNamed "2.2.4" is a plain semver version for jquery
+75 silly mapToRegistry name jquery
+76 silly mapToRegistry using default registry
+77 silly mapToRegistry registry https://registry.npmjs.org/
+78 silly mapToRegistry data Result {
+78 silly mapToRegistry   raw: 'jquery',
+78 silly mapToRegistry   scope: null,
+78 silly mapToRegistry   name: 'jquery',
+78 silly mapToRegistry   rawSpec: '',
+78 silly mapToRegistry   spec: 'latest',
+78 silly mapToRegistry   type: 'tag' }
+79 silly mapToRegistry uri https://registry.npmjs.org/jquery
+80 verbose addRemoteTarball https://registry.npmjs.org/jquery/-/jquery-2.2.4.tgz not in flight; adding
+81 verbose addRemoteTarball [ 'https://registry.npmjs.org/jquery/-/jquery-2.2.4.tgz',
+81 verbose addRemoteTarball   '2c89d6889b5eac522a7eea32c14521559c6cbf02' ]
+82 info retry fetch attempt 1 at 15:50:31
+83 info attempt registry request try #1 at 15:50:31
+84 http fetch GET https://registry.npmjs.org/jquery/-/jquery-2.2.4.tgz
+85 http fetch 200 https://registry.npmjs.org/jquery/-/jquery-2.2.4.tgz
+86 http 200 https://registry.npmjs.org/bootstrap
+87 verbose headers { server: 'nginx/1.10.1',
+87 verbose headers   'content-type': 'application/json',
+87 verbose headers   'last-modified': 'Wed, 23 Nov 2016 22:19:51 GMT',
+87 verbose headers   etag: 'W/"58361607-b1f0"',
+87 verbose headers   'content-encoding': 'gzip',
+87 verbose headers   'cache-control': 'max-age=300',
+87 verbose headers   'content-length': '8951',
+87 verbose headers   'accept-ranges': 'bytes',
+87 verbose headers   date: 'Fri, 25 Nov 2016 07:50:30 GMT',
+87 verbose headers   via: '1.1 varnish',
+87 verbose headers   age: '55',
+87 verbose headers   connection: 'keep-alive',
+87 verbose headers   'x-served-by': 'cache-lax8625-LAX',
+87 verbose headers   'x-cache': 'HIT',
+87 verbose headers   'x-cache-hits': '1',
+87 verbose headers   'x-timer': 'S1480060230.919819,VS0,VE0',
+87 verbose headers   vary: 'Accept-Encoding' }
+88 silly get cb [ 200,
+88 silly get   { server: 'nginx/1.10.1',
+88 silly get     'content-type': 'application/json',
+88 silly get     'last-modified': 'Wed, 23 Nov 2016 22:19:51 GMT',
+88 silly get     etag: 'W/"58361607-b1f0"',
+88 silly get     'content-encoding': 'gzip',
+88 silly get     'cache-control': 'max-age=300',
+88 silly get     'content-length': '8951',
+88 silly get     'accept-ranges': 'bytes',
+88 silly get     date: 'Fri, 25 Nov 2016 07:50:30 GMT',
+88 silly get     via: '1.1 varnish',
+88 silly get     age: '55',
+88 silly get     connection: 'keep-alive',
+88 silly get     'x-served-by': 'cache-lax8625-LAX',
+88 silly get     'x-cache': 'HIT',
+88 silly get     'x-cache-hits': '1',
+88 silly get     'x-timer': 'S1480060230.919819,VS0,VE0',
+88 silly get     vary: 'Accept-Encoding' } ]
+89 verbose get saving bootstrap to /Users/hws/.npm/registry.npmjs.org/bootstrap/.cache.json
+90 verbose correctMkdir /Users/hws/.npm correctMkdir not in flight; initializing
+91 silly resolveWithNewModule bootstrap@3.3.7 checking installable status
+92 silly cache add args [ 'bootstrap@^3.3.6', null ]
+93 verbose cache add spec bootstrap@^3.3.6
+94 silly cache add parsed spec Result {
+94 silly cache add   raw: 'bootstrap@^3.3.6',
+94 silly cache add   scope: null,
+94 silly cache add   name: 'bootstrap',
+94 silly cache add   rawSpec: '^3.3.6',
+94 silly cache add   spec: '>=3.3.6 <4.0.0',
+94 silly cache add   type: 'range' }
+95 silly addNamed bootstrap@>=3.3.6 <4.0.0
+96 verbose addNamed ">=3.3.6 <4.0.0" is a valid semver range for bootstrap
+97 silly addNameRange { name: 'bootstrap', range: '>=3.3.6 <4.0.0', hasData: false }
+98 silly mapToRegistry name bootstrap
+99 silly mapToRegistry using default registry
+100 silly mapToRegistry registry https://registry.npmjs.org/
+101 silly mapToRegistry data Result {
+101 silly mapToRegistry   raw: 'bootstrap',
+101 silly mapToRegistry   scope: null,
+101 silly mapToRegistry   name: 'bootstrap',
+101 silly mapToRegistry   rawSpec: '',
+101 silly mapToRegistry   spec: 'latest',
+101 silly mapToRegistry   type: 'tag' }
+102 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+103 verbose addNameRange registry:https://registry.npmjs.org/bootstrap not in flight; fetching
+104 verbose get https://registry.npmjs.org/bootstrap not expired, no request
+105 silly addNameRange number 2 { name: 'bootstrap', range: '>=3.3.6 <4.0.0', hasData: true }
+106 silly addNameRange versions [ 'bootstrap',
+106 silly addNameRange   [ '0.0.1',
+106 silly addNameRange     '0.0.2',
+106 silly addNameRange     '3.1.1',
+106 silly addNameRange     '3.2.0',
+106 silly addNameRange     '3.3.0',
+106 silly addNameRange     '3.3.1',
+106 silly addNameRange     '3.3.2',
+106 silly addNameRange     '3.3.4',
+106 silly addNameRange     '3.3.5',
+106 silly addNameRange     '3.3.6',
+106 silly addNameRange     '4.0.0-alpha.2',
+106 silly addNameRange     '3.3.7',
+106 silly addNameRange     '4.0.0-alpha.3',
+106 silly addNameRange     '4.0.0-alpha.4',
+106 silly addNameRange     '4.0.0-alpha.5' ] ]
+107 silly addNamed bootstrap@3.3.7
+108 verbose addNamed "3.3.7" is a plain semver version for bootstrap
+109 silly mapToRegistry name bootstrap
+110 silly mapToRegistry using default registry
+111 silly mapToRegistry registry https://registry.npmjs.org/
+112 silly mapToRegistry data Result {
+112 silly mapToRegistry   raw: 'bootstrap',
+112 silly mapToRegistry   scope: null,
+112 silly mapToRegistry   name: 'bootstrap',
+112 silly mapToRegistry   rawSpec: '',
+112 silly mapToRegistry   spec: 'latest',
+112 silly mapToRegistry   type: 'tag' }
+113 silly mapToRegistry uri https://registry.npmjs.org/bootstrap
+114 verbose addRemoteTarball https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.7.tgz not in flight; adding
+115 verbose addRemoteTarball [ 'https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.7.tgz',
+115 verbose addRemoteTarball   '5a389394549f23330875a3b150656574f8a9eb71' ]
+116 info retry fetch attempt 1 at 15:50:32
+117 info attempt registry request try #1 at 15:50:32
+118 http fetch GET https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.7.tgz
+119 http fetch 200 https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.7.tgz
+120 http 200 https://registry.npmjs.org/handlebars
+121 verbose headers { server: 'nginx/1.10.1',
+121 verbose headers   'content-type': 'application/json',
+121 verbose headers   'last-modified': 'Tue, 22 Nov 2016 01:59:44 GMT',
+121 verbose headers   etag: 'W/"5833a690-fc9a"',
+121 verbose headers   'content-encoding': 'gzip',
+121 verbose headers   'cache-control': 'max-age=300',
+121 verbose headers   'content-length': '9136',
+121 verbose headers   'accept-ranges': 'bytes',
+121 verbose headers   date: 'Fri, 25 Nov 2016 07:50:31 GMT',
+121 verbose headers   via: '1.1 varnish',
+121 verbose headers   age: '203',
+121 verbose headers   connection: 'keep-alive',
+121 verbose headers   'x-served-by': 'cache-lax8627-LAX',
+121 verbose headers   'x-cache': 'HIT',
+121 verbose headers   'x-cache-hits': '3',
+121 verbose headers   'x-timer': 'S1480060231.831689,VS0,VE0',
+121 verbose headers   vary: 'Accept-Encoding' }
+122 silly get cb [ 200,
+122 silly get   { server: 'nginx/1.10.1',
+122 silly get     'content-type': 'application/json',
+122 silly get     'last-modified': 'Tue, 22 Nov 2016 01:59:44 GMT',
+122 silly get     etag: 'W/"5833a690-fc9a"',
+122 silly get     'content-encoding': 'gzip',
+122 silly get     'cache-control': 'max-age=300',
+122 silly get     'content-length': '9136',
+122 silly get     'accept-ranges': 'bytes',
+122 silly get     date: 'Fri, 25 Nov 2016 07:50:31 GMT',
+122 silly get     via: '1.1 varnish',
+122 silly get     age: '203',
+122 silly get     connection: 'keep-alive',
+122 silly get     'x-served-by': 'cache-lax8627-LAX',
+122 silly get     'x-cache': 'HIT',
+122 silly get     'x-cache-hits': '3',
+122 silly get     'x-timer': 'S1480060231.831689,VS0,VE0',
+122 silly get     vary: 'Accept-Encoding' } ]
+123 verbose get saving handlebars to /Users/hws/.npm/registry.npmjs.org/handlebars/.cache.json
+124 verbose correctMkdir /Users/hws/.npm correctMkdir not in flight; initializing
+125 silly resolveWithNewModule handlebars@4.0.6 checking installable status
+126 silly cache add args [ 'handlebars@^4.0.5', null ]
+127 verbose cache add spec handlebars@^4.0.5
+128 silly cache add parsed spec Result {
+128 silly cache add   raw: 'handlebars@^4.0.5',
+128 silly cache add   scope: null,
+128 silly cache add   name: 'handlebars',
+128 silly cache add   rawSpec: '^4.0.5',
+128 silly cache add   spec: '>=4.0.5 <5.0.0',
+128 silly cache add   type: 'range' }
+129 silly addNamed handlebars@>=4.0.5 <5.0.0
+130 verbose addNamed ">=4.0.5 <5.0.0" is a valid semver range for handlebars
+131 silly addNameRange { name: 'handlebars', range: '>=4.0.5 <5.0.0', hasData: false }
+132 silly mapToRegistry name handlebars
+133 silly mapToRegistry using default registry
+134 silly mapToRegistry registry https://registry.npmjs.org/
+135 silly mapToRegistry data Result {
+135 silly mapToRegistry   raw: 'handlebars',
+135 silly mapToRegistry   scope: null,
+135 silly mapToRegistry   name: 'handlebars',
+135 silly mapToRegistry   rawSpec: '',
+135 silly mapToRegistry   spec: 'latest',
+135 silly mapToRegistry   type: 'tag' }
+136 silly mapToRegistry uri https://registry.npmjs.org/handlebars
+137 verbose addNameRange registry:https://registry.npmjs.org/handlebars not in flight; fetching
+138 verbose get https://registry.npmjs.org/handlebars not expired, no request
+139 silly addNameRange number 2 { name: 'handlebars', range: '>=4.0.5 <5.0.0', hasData: true }
+140 silly addNameRange versions [ 'handlebars',
+140 silly addNameRange   [ '1.0.6',
+140 silly addNameRange     '1.0.6-2',
+140 silly addNameRange     '1.0.7',
+140 silly addNameRange     '1.0.8',
+140 silly addNameRange     '1.0.9',
+140 silly addNameRange     '1.0.10',
+140 silly addNameRange     '1.0.11',
+140 silly addNameRange     '1.0.12',
+140 silly addNameRange     '1.1.0',
+140 silly addNameRange     '1.1.1',
+140 silly addNameRange     '1.1.2',
+140 silly addNameRange     '1.2.0',
+140 silly addNameRange     '1.2.1',
+140 silly addNameRange     '1.3.0',
+140 silly addNameRange     '2.0.0-alpha.1',
+140 silly addNameRange     '2.0.0-alpha.2',
+140 silly addNameRange     '2.0.0-alpha.3',
+140 silly addNameRange     '2.0.0-alpha.4',
+140 silly addNameRange     '2.0.0-beta.1',
+140 silly addNameRange     '2.0.0',
+140 silly addNameRange     '3.0.0',
+140 silly addNameRange     '3.0.1',
+140 silly addNameRange     '3.0.2',
+140 silly addNameRange     '3.0.3',
+140 silly addNameRange     '4.0.0',
+140 silly addNameRange     '4.0.1',
+140 silly addNameRange     '4.0.2',
+140 silly addNameRange     '4.0.3',
+140 silly addNameRange     '4.0.4',
+140 silly addNameRange     '4.0.5',
+140 silly addNameRange     '4.0.6',
+140 silly addNameRange     '1.0.2-beta',
+140 silly addNameRange     '1.0.4-beta',
+140 silly addNameRange     '1.0.5-beta' ] ]
+141 silly addNamed handlebars@4.0.6
+142 verbose addNamed "4.0.6" is a plain semver version for handlebars
+143 silly mapToRegistry name handlebars
+144 silly mapToRegistry using default registry
+145 silly mapToRegistry registry https://registry.npmjs.org/
+146 silly mapToRegistry data Result {
+146 silly mapToRegistry   raw: 'handlebars',
+146 silly mapToRegistry   scope: null,
+146 silly mapToRegistry   name: 'handlebars',
+146 silly mapToRegistry   rawSpec: '',
+146 silly mapToRegistry   spec: 'latest',
+146 silly mapToRegistry   type: 'tag' }
+147 silly mapToRegistry uri https://registry.npmjs.org/handlebars
+148 verbose addRemoteTarball https://registry.npmjs.org/handlebars/-/handlebars-4.0.6.tgz not in flight; adding
+149 verbose addRemoteTarball [ 'https://registry.npmjs.org/handlebars/-/handlebars-4.0.6.tgz',
+149 verbose addRemoteTarball   '2ce4484850537f9c97a8026d5399b935c4ed4ed7' ]
+150 info retry fetch attempt 1 at 15:50:35
+151 info attempt registry request try #1 at 15:50:35
+152 http fetch GET https://registry.npmjs.org/handlebars/-/handlebars-4.0.6.tgz
+153 http fetch 200 https://registry.npmjs.org/handlebars/-/handlebars-4.0.6.tgz
+154 silly fetchAndShaCheck shasum 2c89d6889b5eac522a7eea32c14521559c6cbf02
+155 verbose addTmpTarball /var/folders/c0/m643_xc11lg8v0t94_rr_7_00000gp/T/npm-79814-4103917d/registry.npmjs.org/jquery/-/jquery-2.2.4.tgz not in flight; adding
+156 verbose addTmpTarball already have metadata; skipping unpack for jquery@2.2.4
+157 verbose correctMkdir /Users/hws/.npm correctMkdir not in flight; initializing
+158 silly cache afterAdd jquery@2.2.4
+159 verbose afterAdd /Users/hws/.npm/jquery/2.2.4/package/package.json not in flight; writing
+160 verbose correctMkdir /Users/hws/.npm correctMkdir not in flight; initializing
+161 verbose afterAdd /Users/hws/.npm/jquery/2.2.4/package/package.json written
+162 silly fetchAndShaCheck shasum 5a389394549f23330875a3b150656574f8a9eb71
+163 verbose addTmpTarball /var/folders/c0/m643_xc11lg8v0t94_rr_7_00000gp/T/npm-79814-4103917d/registry.npmjs.org/bootstrap/-/bootstrap-3.3.7.tgz not in flight; adding
+164 verbose addTmpTarball already have metadata; skipping unpack for bootstrap@3.3.7
+165 verbose correctMkdir /Users/hws/.npm correctMkdir not in flight; initializing
+166 silly cache afterAdd bootstrap@3.3.7
+167 verbose afterAdd /Users/hws/.npm/bootstrap/3.3.7/package/package.json not in flight; writing
+168 verbose correctMkdir /Users/hws/.npm correctMkdir not in flight; initializing
+169 verbose afterAdd /Users/hws/.npm/bootstrap/3.3.7/package/package.json written
+170 silly fetchAndShaCheck shasum 2ce4484850537f9c97a8026d5399b935c4ed4ed7
+171 silly rollbackFailedOptional Starting
+172 silly rollbackFailedOptional Finishing
+173 silly runTopLevelLifecycles Starting
+174 silly runTopLevelLifecycles Finishing
+175 silly install printInstalled
+176 verbose stack Error: shasum check failed for /var/folders/c0/m643_xc11lg8v0t94_rr_7_00000gp/T/npm-79814-4103917d/registry.npmjs.org/handlebars/-/handlebars-4.0.6.tgz
+176 verbose stack Expected: 2ce4484850537f9c97a8026d5399b935c4ed4ed7
+176 verbose stack Actual:   2fa15a9b36811ea14017d13c351e9c80a0dac36f
+176 verbose stack From:     https://registry.npmjs.org/handlebars/-/handlebars-4.0.6.tgz
+176 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/sha/index.js:25:8
+176 verbose stack     at ReadStream.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/sha/index.js:72:7)
+176 verbose stack     at emitNone (events.js:91:20)
+176 verbose stack     at ReadStream.emit (events.js:185:7)
+176 verbose stack     at endReadableNT (_stream_readable.js:934:12)
+176 verbose stack     at _combinedTickCallback (internal/process/next_tick.js:74:11)
+176 verbose stack     at process._tickCallback (internal/process/next_tick.js:98:9)
+177 verbose cwd /Users/hws/Desktop/project/Cktv/src/main/webapp
+178 error Darwin 16.0.0
+179 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+180 error node v6.2.2
+181 error npm  v3.9.5
+182 error shasum check failed for /var/folders/c0/m643_xc11lg8v0t94_rr_7_00000gp/T/npm-79814-4103917d/registry.npmjs.org/handlebars/-/handlebars-4.0.6.tgz
+182 error Expected: 2ce4484850537f9c97a8026d5399b935c4ed4ed7
+182 error Actual:   2fa15a9b36811ea14017d13c351e9c80a0dac36f
+182 error From:     https://registry.npmjs.org/handlebars/-/handlebars-4.0.6.tgz
+183 error If you need help, you may report this error at:
+183 error     <https://github.com/npm/npm/issues>
+184 verbose exit [ 1, true ]

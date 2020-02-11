@@ -1,0 +1,5 @@
+[cktv:error][ERROR] [2016-04-30 18:37:30] org.apache.velocity.runtime.log.CommonsLogLogChute.log(96) | ResourceManager : unable to find resource 'card-manage/append-card1.0.html' in any resource loader.
+[cktv:error][ERROR] [2016-04-30 18:43:31] org.apache.velocity.runtime.log.CommonsLogLogChute.log(96) | ResourceManager : unable to find resource 'card-manage/append-card1.0.html' in any resource loader.
+[cktv:error][ERROR] [2016-04-30 19:11:43] org.apache.velocity.runtime.log.CommonsLogLogChute.log(96) | ResourceManager : unable to find resource 'card-manage/append-card1.0.html' in any resource loader.
+[cktv:error][ERROR] [2016-04-30 19:20:45] org.apache.velocity.runtime.log.CommonsLogLogChute.log(96) | ResourceManager : unable to find resource 'card-manage/append-card1.0.html' in any resource loader.
+[cktv:error][ERROR] [2016-04-30 19:33:42] org.apache.velocity.runtime.log.CommonsLogLogChute.log(96) | ResourceManager : unable to find resource 'card-manage/append-card1.0.html' in any resource loader.

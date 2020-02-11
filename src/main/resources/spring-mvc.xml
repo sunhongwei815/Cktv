@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.1.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+    <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
+    <context:component-scan base-package="com.cktv.controller"/>
+
+    <mvc:annotation-driven>
+        <mvc:message-converters register-defaults="false">
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg name="defaultCharset" value="UTF-8"/>
+            </bean>
+            <bean class="org.springframework.http.converter.FormHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                        <property name="dateFormat">
+                            <bean class="java.text.SimpleDateFormat">
+                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"></constructor-arg>
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+            <!--<bean id="fastJsonHttpMessageConverter"
+                  class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                &lt;!&ndash;<property name="supportedMediaTypes">
+                    <list>
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>&ndash;&gt;
+                <property name="features">
+                    <list>
+                       &lt;!&ndash;  输出key时是否使用双引号
+                        <value>QuoteFieldNames</value>
+                         是否输出值为null的字段
+                         <value>WriteMapNullValue</value>
+                         数值字段如果为null,输出为0,而非null
+                        <value>WriteNullNumberAsZero</value>
+                         List字段如果为null,输出为[],而非null
+                        <value>WriteNullListAsEmpty</value>
+                         字符类型字段如果为null,输出为"",而非null
+                        <value>WriteNullStringAsEmpty</value>
+                         Boolean字段如果为null,输出为false,而非null
+                        <value>WriteNullBooleanAsFalse</value>
+                         null String不输出
+                        <value>WriteNullStringAsEmpty</value>
+                         null String也要输出
+                         <value>WriteMapNullValue</value> &ndash;&gt;
+
+                        &lt;!&ndash; Date的日期转换器 &ndash;&gt;
+                        <value>WriteDateUseDateFormat</value>
+                    </list>
+                </property>
+            </bean>-->
+
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <!--将加载资源文件的路径去除掉-->
+            <mvc:exclude-mapping path="/dist/**"/>
+            <mvc:exclude-mapping path="/libs/**"/>
+            <!--<mvc:exclude-mapping path="/pages/**"/>-->
+            <mvc:exclude-mapping path="/src/**"/>
+            <mvc:exclude-mapping path="/device_sche_v/selectByDevice_did"/>
+            <mvc:exclude-mapping path="/device/checkDeviceStatus"/>
+            <mvc:exclude-mapping path="/phoneDevice/client_kickoff"/>
+            <mvc:exclude-mapping path="/open/**"/>
+            <mvc:exclude-mapping path="/pages/user-login/login.html"/>
+            <bean id="loginIterceptor" class="com.cktv.util.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/pages/user-login/login.html"/>
+            <mvc:exclude-mapping path="/dist/**"/>
+            <mvc:exclude-mapping path="/libs/**"/>
+            <mvc:exclude-mapping path="/src/**"/>
+            <bean id="velocityInterceptor" class="com.cktv.util.interceptor.VelocityInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    <!--对静态资源的访问-->
+    <mvc:resources location="/dist/" mapping="/dist/**"/>
+    <mvc:resources location="/libs/" mapping="/libs/**"/>
+    <!--<mvc:resources location="/pages/" mapping="/pages/**"/>-->
+    <mvc:resources location="/src/" mapping="/src/**"/>
+    <!--添加默认处理静态资源的配置 -->
+    <mvc:default-servlet-handler/>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="104857600"/>
+        <property name="maxInMemorySize" value="1024"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+
+    </bean>
+    <!-- 配置视图的显示 -->
+    <bean id="velocityConfigurer"
+          class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <!-- 模板存放的路径 -->
+        <property name="resourceLoaderPath" value="/pages"/>
+        <!-- Velocity配置文件 -->
+        <property name="configLocation" value="classpath:velocity.properties"/>
+    </bean>
+    <!-- 配置velocity引擎 -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+        <!--<property name="prefix" value="/"/>-->
+        <!-- 视图文件的后缀名 -->
+        <property name="suffix" value=".html"/>
+        <!--toolbox配置文件路径-->
+        <property name="dateToolAttribute" value="date"/>
+        <!--日期函数名称-->
+        <property name="numberToolAttribute" value="number"/>
+        <!--数字函数名称-->
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="exposeSpringMacroHelpers" value="true"/>
+        <!--是否使用spring对宏定义的支持-->
+        <property name="exposeRequestAttributes" value="true"/>
+        <!--是否开放request属性-->
+        <property name="requestContextAttribute" value="rc"/>
+        <!--request属性引用名称-->
+
+        <!--&lt;!&ndash;指定默认layout文件&ndash;&gt;-->
+        <!--<property name="layoutUrl" value="layout/default.vm"/>-->
+    </bean>
+    <!--自定义异常处理机制-->
+    <bean class="com.cktv.exception.handle.MyExceptionResolver"/>
+
+
+</beans>

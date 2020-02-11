@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.wrap {
+  position: relative;
+}
+#wrap {
+  position: relative;
+  top: 10em;
+  width: 924px;
+  height: 500px;
+  margin: 20px auto;
+}
+#wrap #tpl_frame {
+  width: 770px;
+  height: 440px;
+  border: 5px solid #000;
+  padding: 0 !important;
+}
+#wrap #tpl_frame .tpl_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.34);
+  /*#sel_photo{
+        position:absolute;
+        margin-top: -23px;
+        margin-left: -53px;
+        top:50%;
+        left: 50%;
+      }*/
+}
+#wrap #tpl_frame .tpl_mask .file {
+  position: absolute;
+  width: 100px;
+  height: 45px;
+  background: linear-gradient(#73B3EA, #2467A0 50%, #0A477D);
+  border: 1px solid #125B86;
+  border-radius: 4px;
+  font-size: 18px;
+  text-align: center;
+  color: #EDF2F5;
+  line-height: 45px;
+  top: 50%;
+  left: 50%;
+  margin-top: -22.5px;
+  margin-left: -50px;
+}
+#wrap #tpl_frame .tpl_mask .file input {
+  position: absolute;
+  width: 100px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+#wrap #tpl_frame .tpl_mask .file:hover {
+  text-decoration: none;
+}
+#wrap #tpl_frame .import_tpl {
+  width: 100%;
+  height: 100%;
+}
+#wrap #operate {
+  position: relative;
+  height: 440px;
+}
+#wrap #operate #replace_img {
+  bottom: 1%;
+}
+#wrap #operate #replace_video {
+  bottom: 1%;
+}
+#wrap #operate #edit_font {
+  bottom: 25%;
+}
+#wrap #operate .operate {
+  position: absolute;
+  text-align: center;
+  border: 1px solid #F4F7F7;
+  border-radius: 10px;
+  width: 100px;
+  height: 70px;
+  margin: 30px auto;
+  background: linear-gradient(#73B3EA, #2467A0 50%, #0A477D);
+  /*.operate_mask{
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid;
+        border-radius: 10px;
+        background-color: rgba(1, 5, 14, 0.52);
+        width: 100%;
+        height: 100%;
+        color: rgb(242, 244, 247);
+        font-size: 16px;
+        font-weight: bold;
+        padding: 16px;
+      }*/
+}
+#wrap #operate .operate .fa {
+  font-size: 50px;
+  text-align: center;
+  margin: 10px auto;
+  color: #EBF3F1;
+}
+#save {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+}
+#save .save {
+  color: white;
+  background: linear-gradient(#73B3EA, #2467A0 50%, #0A477D);
+  border: 1px solid #F4F7F7;
+}
+#layer {
+  width: 100%;
+  height: 100%;
+}
+#layer #layer_tool {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid #eeeeee;
+}
+#layer #layer_content {
+  position: relative;
+}
+#layer #layer_content textarea {
+  width: 305px;
+  height: 140px;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 10px;
+}
+#layer #layer_content #confirm {
+  position: absolute;
+  right: 15px;
+  top: 60px;
+}
+#layer #layer_content #cancel {
+  position: absolute;
+  right: 15px;
+  top: 100px;
+}
+#setProperty_content {
+  width: 413px;
+  height: 226px;
+  padding-top: 20px;
+}
+#setProperty_content form #tplTime input {
+  height: 20px!important;
+}
+#setProperty_content form #tplName {
+  text-align: center;
+}
+#setProperty_content form #tplAuthor {
+  text-align: center;
+}
+#setProperty_content form #regTime {
+  text-align: center;
+}
+#setProperty_content form .pro {
+  text-align: right;
+}
+#setProperty_content form #btn {
+  margin: 0 100px;
+  float: left;
+}
+#setProperty_content form #btn .btn {
+  margin: 0 20px;
+}
+.blue {
+  border: 4px solid #3c9ffb;
+}
+#popContent {
+  width: 100%;
+}
+#popContent #video {
+  overflow: hidden;
+}
+#popContent #video .videoModel {
+  padding-bottom: 20px;
+}
+#popContent #video .videoModel .basicInfo {
+  margin: 10px auto;
+}
+#popContent #video .videoModel .video {
+  width: 100%;
+}
+#popContent #video .videoModel .video img {
+  width: 100%;
+  height: 100%;
+}
+#popContent hr {
+  border: 0.5px solid #f5f5f5;
+}
+#popContent #operateBtn {
+  margin: 0 40px 10px;
+  text-align: right;
+}
+#popContent #operateBtn button {
+  margin: 0 5px;
+}

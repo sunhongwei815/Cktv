@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>内容列表</title>
+    <link rel="stylesheet" type="text/css" href="../../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/display-manage/content-list.css">
+</head>
+<body>
+<!--总体头部和侧边栏-->
+#parse ("/pages/common/header.html")
+#parse ("/pages/common/common-left1.html")
+<!--总体右侧-->
+<div id="right">
+    <div class="right">
+        <div class="right_head">
+            <a class="link_name">内容管理</a>
+            <span>/</span>
+            <a class="left_link">新增卡片</a>
+        </div>
+        <div class="right_body">
+          <h4>内容列表</h4>
+          <div class="nav">
+            <ul>
+              <li>全部内容</li>
+              <li>当天播放内容</li>
+              <li>发布时间线显示</li>
+            </ul>
+          </div>
+          <div class="content" id="contentList">
+          
+          </div>
+          <script id="content-template" type="text/x-handlebars-template">
+            {{#each content}}
+              <div class="main">
+                <ul class="cbp_tmtimeline">
+                  <li>
+                    <div class="cbp_tmtime">{{index}}</div>
+                    <div class="cbp_tmlabel">
+                      <div class="header">
+                        <span>总控专辑发布</span>
+                        <span>总张数：{{number}}</span>
+                      </div>
+                      <div class="body">
+                        <h5>专辑名称：{{name}}</h5>
+                        <h5>计划属性：{{plan}}</h5>
+                        <h5>更新时间：{{time}}</h5>
+                        <div class="row">
+                          <div class="col-sm-3 col-sm-3">
+                            <div class="thumbnail">
+                              <img src="../../src/img/test.jpg" alt="">
+                            </div>
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 编辑
+                        </button>
+                        <button type="button" class="btn btn-default">
+                          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                          删除
+                        </button>
+                        <button type="button" class="btn btn-info">
+                          <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>
+                          更多详情
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            {{/each}}
+          </script>
+        </div>
+        <div class="footer">
+            <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../libs/jquery.js"></script>
+<script type="text/javascript" src= "../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../src/scripts/common/common1_1.js"></script>
+<script type="text/javascript" src="../../src/scripts/display-manage/content-list.js" ></script>
+<script type="text/javascript" src="../../libs/jquery.js"></script>
+<script type="text/javascript" src="../../libs/handlebars-v4.0.5.js"></script>
+<script type="text/javascript" src="../../libs/modernizr.custom.js"></script>
+</body>
+</html>

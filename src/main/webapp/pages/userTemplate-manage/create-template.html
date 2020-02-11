@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板生成</title>
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/userTemplate-manage/create-template.css">
+</head>
+<body>
+<!--总体头部和侧边栏-->
+#parse ("/pages/common/header.html")
+#parse ("/pages/common/common-left1.html")
+<!--总体右侧-->
+<div id="right">
+    <div class="right">
+        <div class="right_head">
+            <a >内容管理</a>
+            <span>/</span>
+            <a class="link_name">模板管理</a>
+            <span>/</span>
+            <a class="left_link">创建模板</a>
+            <span>/</span>
+            <small id="nameoftpl">模板名称: </small>
+            <span>/</span>
+            <small id="idoftpl">模板id: </small>
+        </div>
+        <div class="right_body">
+            <!--双击修改弹出摸态框-->
+            <div class="modal fade" id="layer_type_content">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">请修改文字</h4>
+                        </div>
+                        <form role="form" class="form-horizontal" id="type_form">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="radio-inline col-sm-2">选择字体</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" name="font_size" id="font_size">
+                                            <option selected>14</option>
+                                            <option>16</option>
+                                            <option>18</option>
+                                            <option>20</option>
+                                            <option>24</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="radio-inline col-sm-2">字体颜色</label>
+                                    <div class="col-sm-9">
+                                        <input type="color" class="form-control" name="font_color" id="font_color">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="radio-inline col-sm-2">背景颜色</label>
+                                    <div class="col-sm-9">
+                                        <input type="color" class="form-control" name="back_color" id="back_color">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="radio-inline col-sm-2">修改文字</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="" id="font_input" cols="60" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="type_save">保存</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="layer_photo_content">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">请选择图片</h4>
+                        </div>
+                        <form role="form" class="form-horizontal" id="photo_form" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="radio-inline col-sm-2">选择图片</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control" name="picture" accept="image/*" id="fileImg">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="radio-inline col-sm-2">预览图片</label>
+                                    <div class="col-sm-9">
+                                        <img src="/Cktv/src/img/logo.png" width="400" height="200" alt="图片" id="preview">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" id="photo_save">保存</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="layer_video_content">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">请选择视频</h4>
+                        </div>
+                        <div class="modal-body" id="video-choose">
+                            <!--数据是Handlebars渲染-->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary" id="video_save">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <iframe id="iframe" class="iframe" frameborder="0" scrolling="no"></iframe>
+            <div class="drag type" data-check="out" title="请拖入至框中">
+                <div class="type_content">这里可以修改文字</div>
+            </div>
+            <div class="drag photo" data-check="out" title="请拖入至框中"></div>
+            <div class="drag video" data-check="out" title="请拖入至框中">
+                <video width="160" height="90" src="/Cktv/src/a.mp4">
+                </video>
+            </div>
+            <!--#if (${tpl.is_video} == 2)-->
+            <!--#elseif (${tpl.is_video} == 1)-->
+            <!--<div></div>-->
+            <!--#end-->
+            <button class="btn btn-lg" id="savehtml">保存修改</button>
+        </div>
+        <div class="footer">
+            <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+        </div>
+    </div>
+</div>
+
+<script src="/Cktv/libs/jquery.js"></script>
+<script src="/Cktv/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/Cktv/src/scripts/common/ajax.js"></script>
+<!--<script src="http://www.imooc.com/data/jquery-1.8.2.min.js" type="text/javascript"></script>-->
+<!--<script src="http://www.imooc.com/data/jquery-ui-1.9.2.min.js" type="text/javascript"></script>-->
+<script src="/Cktv/libs/handlebars-v4.0.5.js"></script>
+<script src="/Cktv/src/scripts/common/common1_1.js"></script>
+<script src="/Cktv/src/scripts/userTemplate-manage/create-template02.js"></script>
+
+<script id="videoListTemplate" type="text/x-handlebars-template">
+    <div class="video-wrap">
+        {{#each this}}
+        <div class="videoModel col-md-4">
+            <div class="basicInfo">
+                <input type="radio" name="video" video_url="{{video_url}}">
+                <span>{{video_name}}</span>
+            </div>
+            <div class="video-img">
+                <img class="facePic" video_url="{{video_url}}" src="{{video_thumb_url}}" alt="图片不存在">
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</script>
+</body>
+</html>

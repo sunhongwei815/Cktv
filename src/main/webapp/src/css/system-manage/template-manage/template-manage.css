@@ -1,0 +1,252 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+/*#right{*/
+    /*top:1em;*/
+/*}*/
+#rightHead{
+    width:100%;
+    font-size: 20px;
+    height:3em;
+    padding: 5px 10px;
+    line-height:51px;
+    background-color:#ffffff;
+    margin-top:20px;
+}
+#rightBody{
+    margin-top:20px;
+    min-height: 75%;
+}
+.add{
+    /*margin-left:14px;*/
+    padding-left:55px;
+}
+
+.button-design {
+    width:90px;
+    background-color: #428bca;
+    color: white;
+    font-size: 1.4rem;
+    border:1px solid #e6e6e6;
+}
+.button-default:hover{
+    color:#333;
+    background-color:#e6e6e6;
+}
+#main{
+    overflow: hidden;
+    margin-top:3px;
+}
+nav .pagination{
+    padding-left:55px;
+}
+.box{
+    padding-left:55px;
+    padding-top:25px;
+    float:left;
+    position:relative;
+}
+.pic{
+    border:1px solid #7B8A95;
+    padding:10px;
+    border-radius:5px;
+    box-shadow: 0 0 10px #ccc;
+    text-align:center;
+}
+
+.pic img{
+    width:230px;
+    height:180px;
+    border:1px solid #7B8A95;
+}
+h4{
+    margin-top:15px;
+    margin-bottom:-1px;
+}
+.boxPage{
+    display:none;
+    position:absolute;
+    top:36px;
+    left:65px;
+    width:231px;
+    height:180px;
+    background-color: #5A5858;
+    opacity: 0.6;
+}
+.box:hover .boxPage{
+    display: block;
+}
+
+#boxPage .btn{
+    height:43px;
+    width:43px;
+    background-color:#171E25;
+    color: #fff;
+    position: absolute;
+    top: 42%;
+    border-radius: 50%;
+}
+.btn-play {
+    left: 11%;
+}
+.btn-remove {
+    left: 42%;
+}
+.btn-down{
+    left:73%;
+}
+.visit span{
+    margin-left:42px;
+    margin-top:90px;
+    color:#ffffff;
+}
+.det span{
+    position:absolute;
+    left:112px;
+    top:92px;
+    color:#ffffff;
+}
+.download span{
+    position:absolute;
+    left:183px;
+    top:92px;
+    color:#ffffff;
+}
+#wrap{
+    display:none;
+    width:350px;
+    height:313px;
+    position:absolute;
+    top:0px;
+    left:21px;
+    font-family:Microsoft YaHei ;
+    /*border:2px solid #e8e8e8;*/
+
+}
+#uploadForm{
+    margin-left:60px;
+}
+.formLeft{
+    width:30%;
+    display: inline-block;
+    float: left;
+    margin-top:20px;
+    text-align:right;
+    font-size:16px;
+    line-height:35px;
+}
+.formRight{
+    width:70%;
+    display: inline-block;
+    margin-top:28px;
+    position:relative;
+    right:-20px;
+}
+.files{
+    position:relative;
+    width:100px;
+    /*line-height:10px;*/
+    background-color:#eee;
+    height: 24px;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-size:15px;
+    cursor: pointer;
+}
+.text{
+    display: inline-block;
+
+}
+.file{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;  /*宽高和外围元素保持一致*/
+    height: 30px;
+    opacity: 0;
+    -moz-opacity: 0; /* 兼容老式浏览器 */
+    filter: alpha(opacity=0); /* 兼容IE */
+}
+.name{
+    margin-top:22px;
+}
+.model{
+    margin-top:22px;
+}
+.tpl_model{
+   margin-left:10px;
+}
+.pict{
+    margin-top:22px;
+    position:relative;
+    width:100px;
+    /*line-height:10px;*/
+    background-color:#eee;
+    height: 24px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+}
+.pict #file-image{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;  /*宽高和外围元素保持一致*/
+    height: 30px;
+    opacity: 0;
+    -moz-opacity: 0; /* 兼容老式浏览器 */
+    filter: alpha(opacity=0); /* 兼容IE */
+}
+.size{
+    margin-top:22px;
+}
+.video{
+    margin-top:22px;
+}
+/*.videoLgt{
+    margin-top:22px;
+}
+.video-x{
+    margin-top:23px;
+}
+.video-y{
+    margin-top:23px;
+}
+.video-width{
+    margin-top:23px;
+}
+.video-height{
+    margin-top:23px;
+}*/
+.txt{
+    height:22px;
+}
+/*.videoIfo{
+    display:none;
+}*/
+.submit{
+    display:block;
+    overflow: hidden;
+    margin-top:30px;
+    margin-left:26px;
+}
+.submit .button-action{
+    background-color:#428bca;
+    border-color:#428bca;
+}
+#close{
+    margin-left:80px;
+}
+.footer{
+    position: absolute;
+    width: 79%;
+    background-color: #fff;
+    line-height: 4em;
+    text-align: center;
+}

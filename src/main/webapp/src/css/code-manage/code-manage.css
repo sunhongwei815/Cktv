@@ -1,0 +1,162 @@
+html {
+  font-size: 62.5%;
+  /*10 ÷ 16 × 100% = 62.5%*/
+}
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.operate-code {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0px auto;
+}
+.button-design {
+  width: 90%;
+  background-color: #428bca;
+  color: white;
+  font-size: 1.4rem;
+}
+.button-design-search{
+  width: 20%;
+  background-color: #428bca;
+  color: white;
+  font-size: 1.4rem;
+}
+.button-design:visited{
+  background-color: #428bca;
+  color: white;
+}
+.code-operate-style {
+  display: inline-block;
+  width: 18%;
+  height: 50px;
+  text-align: center;
+}
+#table-list tr {
+  height: 50px;
+}
+.search-code {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  margin: 0px auto;
+}
+input.input-design {
+  width: 50%;
+  height: 33px;
+  border: 1px solid #ADADAD;
+  border-radius: 2px;
+}
+
+div#form_parts {
+  width: 400px;
+  height: 220px;
+  margin: 40px auto;
+  text-align: center;
+  display: none;
+}
+.span_parts {
+  width: 100%;
+  height: 80px;
+  line-height: 73px;
+  text-align: center;
+}
+span.input-codeInfo {
+  font-size: 18px;
+  font-family: Microsoft YaHei;
+  font-style: normal;
+}
+.code-content-list th,td{
+  text-align: center;
+}
+.operate-left-part {
+  width: 60%;
+  height: auto;
+  display: inline-block;
+}
+
+.operate-right-part {
+  width: 35%;
+  height: auto;
+  display: inline-block;
+}
+.add-code{
+  display: inline-block;
+  width: 18%;
+  height: 50px;
+  text-align: center;
+}
+.delete-code{
+  display: none;
+  width: 18%;
+  height: 50px;
+  text-align: center;
+}
+
+.a_parts {
+  width: 100%;
+  height: 80px;
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+}
+.a_parts input[type="text"] {
+  border: 1px solid #DADADA;
+  width: 200px;
+  height: 33px;
+  border-radius: 3px;
+}
+
+.fenye{
+  padding: 15px 20px;
+  text-align: left;
+  color: #ccc;
+  position: absolute;
+  right:10px;
+}
+.fenye a{
+  display: inline-block;
+  color: #428bca;
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  border: 1px solid #ddd;
+  margin: 0 2px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.fenye a:hover{
+  text-decoration: none;
+  border: 1px solid #428bca;}
+.fenye span.current{
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  margin: 0 2px;
+  color: #fff;
+  background-color: #428bca;
+  border: 1px solid #428bca;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.fenye span.disabled{
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+  padding: 0 10px;
+  margin: 0 2px;
+  color: #bfbfbf;
+  background: #f2f2f2;
+  border: 1px solid #bfbfbf;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.code-unused{
+  display:none;
+}
+.checkbox-selected{
+  display:none;
+}

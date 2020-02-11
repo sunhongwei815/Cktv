@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>发布列表</title>
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/Cktv/libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/Cktv/libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/display-manage/publish-list.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+<!--总体头部和侧边栏-->
+#parse("pages/common/header.html")
+#parse("pages/common/common-left1.html")
+<!--总体右侧-->
+<div id="right">
+    <div class="right">
+        <div class="right_head">
+            <a>内容管理</a>
+            <span>/</span>
+            <a class="link_name">发布管理</a>
+            <span>/</span>
+            <a class="left_link">专辑列表</a>
+        </div>
+        <div class="right_body">
+            <div class="container">
+                <!--搜索发布模板-->
+                <div class="content-pattern">
+                    <!--适配设备-->
+                  <!--  <div class="row match-equ">
+                        <div class="col-md-2">
+                            <label>适配设备</label>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="choose-line">
+                                <input type="radio" value="" name="match" checked="checked">单屏
+                            </div>
+                        </div>
+                    </div>-->
+                    <!--屏幕的模式-->
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-1" id="screen-type">
+                            <label>屏幕模式</label>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="choose-line">
+                                <input type="radio" value="全部" name="screen" id="quanbu" checked="checked" tp1_model="all">全部
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="竖屏模式" name="screen" id="shuping" tp1_model=2>竖屏模式
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="横屏模式" name="screen" id="hengping" tp1_model=1>横屏模式
+                            </div>
+                        </div>
+                    </div>
+                    <!--交互场景-->
+                   <!-- <div class="row interactive-scene">
+                        <div class="col-md-2">
+                            <label>交互场景</label>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="choose-line">
+                                <input type="radio" value="" name="interactive" checked="checked">屏幕播放
+                            </div>
+                        </div>
+                    </div>-->
+                    <!--计划类型-->
+                    <!--<div class="row">
+                        <div class="col-md-2">
+                            <label>计划类型</label>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="choose-line">
+                                <input type="radio" value="全部" name="plan" checked="checked">全部
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="全天轮播" name="plan">全天轮播
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="按小时计划" name="plan">按小时计划
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="按周内日期" name="plan">按周内日期
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="按指定日期" name="plan">按指定日期
+                            </div>
+                        </div>
+                    </div>-->
+                    <!--时间独占-->
+                    <!--<div class="row is-only">
+                        <div class="col-md-2">
+                            <label>时间独占</label>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="choose-line">
+                                <input type="radio" value="全部" name="only" checked="checked">全部
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="非独占" name="only">非独占
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="独占" name="only">独占
+                            </div>
+                        </div>
+                    </div>-->
+                    <!--投放属性-->
+                    <!--<div class="row">
+                        <div class="col-md-2">
+                            <label>投放属性</label>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="choose-line">
+                                <input type="radio" value="全部" name="play" checked="checked">全部
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="竖屏模式" name="play">投放中
+                            </div>
+                            <div class="choose-line">
+                                <input type="radio" value="横屏模式" name="play">暂停投放
+                            </div>
+                            <div class="choose-btn">
+                                <input type="button" class="btn btn-primary" id="advance" value="高级选项">
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+                <!--删除、修改发布模板-->
+                <div class="content-text">
+                    <div class="box-list">
+                        <table class="table table-bordered">
+                            <thead>
+                                <th>专辑缩略图</th>
+                                <th>专辑信息</th>
+                                <th>近期内容添加</th>
+                                <th>操作</th>
+                            </thead>
+                            <tbody id="publish-list" style="position: relative;">
+                                <!--模板渲染-->
+                            </tbody>
+                        </table>
+                        <div id="publish-load" style="display: none">
+                            <!--加载层spin-->
+                        </div>
+                    </div>
+                </div>
+                <!--分页-->
+                <div class="content-paging">
+                    <div class="paging-tab">
+                        <button id="prePage" class="btn btn-default" type="button"><<</button>
+                        <div id="pageNum">
+                            <!--handlebars渲染按钮-->
+                        </div>
+                        <button id="nextPage" class="btn btn-default" type="button">>></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/Cktv/libs/jquery.js"></script>
+<script type="text/javascript" src="/Cktv/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Cktv/libs/layer-v2.2/layer/layer.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/spin.min.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/handlebars-v4.0.5.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/ajax.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/common1_1.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/display-manage/publish-list.js"></script>
+
+<script id="pageNumTemplate" type="text/x-handlebars-template">
+    {{#eachPage this}}
+        <button class="btn btn-default numPage" data-page={{this}}>{{this}}</button>
+    {{/eachPage}}
+</script>
+
+<script id="publish_list_template" type="text/x-handlebars-template">
+    {{#each this}}
+    {{\#if publish_tpls}}
+    <tr>
+        <td class="suolue-photo">
+            <div class="image">
+                {{!publishTplpublish_tpl_ids[0].tpltpl_id.thumb_url}}
+                <img src={{publish_tpls.0.thumb_url}} alt="海报内容" width="300px" height="150px">
+            </div>
+        </td>
+        <td class="editor-info">
+            <div class="text">
+                <div>
+                    <label>专辑名称：</label><span>{{publish_name}}</span>
+                </div>
+                <!-- <div>
+                     <label>计划属性：</label><span>123434</span>
+                 </div>-->
+                <div>
+                    <label>内容数量：</label><span>{{tpl_count}}</span>
+                </div>
+                <!--<div>
+                    <label>投放属性：</label><span>123434</span>
+                </div>-->
+                <div>
+                    <label>创建日期：</label><span>{{update_time}}</span>
+                </div>
+            </div>
+        </td>
+        <td class="add-late">
+            {{#each publish_tpls}}
+                {{#compare @index 4}}
+                    <div class="late-post">
+                        <img src="{{thumb_url}}" alt="海报内容">
+                    </div>
+                {{/compare}}
+            {{/each}}
+        </td>
+        <td class="operate">
+            <input type="button" class="btn btn-success edit" publish_id="{{publish_id}}" value="编辑">
+            <input type="button" class="btn btn-primary delete" publish_id="{{publish_id}}" value="删除">
+        </td>
+    </tr>
+    {{else}}
+    <tr>
+        <td class="suolue-photo">
+            <div class="image">
+                专辑暂无内容，赶紧添加吧!
+            </div>
+        </td>
+        <td class="editor-info">
+            <div class="text">
+                <div>
+                    <label>专辑名称：</label><span>{{publish_name}}</span>
+                </div>
+                <!--<div>
+                    <label>计划属性：</label><span>123434</span>
+                </div>-->
+                <div>
+                    <label>内容数量：</label><span>{{tpl_count}}</span>
+                </div>
+                <!-- <div>
+                     <label>投放属性：</label><span>123434</span>
+                 </div>-->
+                <div>
+                    <label>创建日期：</label><span>{{publish_time}}</span>
+                </div>
+            </div>
+        </td>
+        <td class="add-late">
+            <div class="late-post">
+            </div>
+        </td>
+        <td class="operate">
+            <input type="button" class="btn btn-success edit" publish_id="{{publish_id}}" value="编辑">
+            <input type="button" class="btn btn-primary delete" publish_id="{{publish_id}}" value="删除">
+        </td>
+    </tr>
+    {{/if}}
+    {{/each}}
+</script>
+</body>
+</html>

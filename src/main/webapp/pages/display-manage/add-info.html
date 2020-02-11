@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>添加信息</title>
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/Cktv/libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/Cktv/libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/Cktv/libs/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/display-manage/add-info.css">
+</head>
+<body>
+<div id="publish-id" style="display: none;">${publish.publish_id}</div>
+
+<!--总体头部和侧边栏-->
+#parse("/common/header.html")
+#parse("/common/common-left1.html")
+<!--总体右侧-->
+<div id="right">
+    <div class="right">
+        <div class="right_head">
+            <a >内容管理</a>
+            <span>/</span>
+            <a class="link_name">发布管理</a>
+            <span>/</span>
+            <a class="">新增专辑</a>
+            <span>/</span>
+            <a class="left_link">添加信息</a>
+        </div>
+        <div class="right_body">
+            <div class="panel-body">
+                <div class="part">
+                    <h4>专辑详情</h4>
+                    <div class="col-sm-offset-2">
+                        <form action="" role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="radio-inline col-sm-2">适配设备</label>
+
+                                <div class="col-sm-9">
+                                    <label class="radio-inline">
+                                        <input type="radio" value="option1" name="num" checked="checked">单屏
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="option2" name="num">多屏
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="radio-inline col-sm-2">屏幕模式</label>
+
+                                <div class="col-sm-9">
+                                    #if(${publish.publish_screen_mode} == 1)
+                                    <label class="radio-inline">
+                                            <input type="radio" value="option1" name="mode" checked="checked" tp1_model="1">横屏
+
+                                    </label>
+                                    <label class="radio-inline">
+                                             <input type="radio" value="option2" name="mode" tp1_model="2">竖屏
+                                    </label>
+                                    #else
+                                    <label class="radio-inline">
+                                        <input type="radio" value="option1" name="mode"  tp1_model="1">横屏
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" value="option2" name="mode" checked="checked" tp1_model="2">竖屏
+                                    </label>
+                                    #end
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="radio-inline col-sm-2">交互场景</label>
+
+                                <div class="col-sm-9">
+                                    <select class="form-control scene">
+                                        <option>屏幕播放</option>
+                                        <option>讲解展示</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="radio-inline  col-sm-2">专辑名称</label>
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入专辑名称"
+                                           value="${publish.publish_name}">
+                                </div>
+                            </div>
+
+                           <!-- <div class="form-group" id="alert-name" style="display: none">
+                                <label class="col-sm-2"></label>
+                                <div class="col-sm-9 alert alert-success" role="alert" style="padding-bottom: 0;margin:0;">
+                                </div>
+                            </div>-->
+                            <!--<div class="form-group">
+                                <label class="radio-inline col-sm-2">投放属性</label>
+
+                                <div class="col-sm-9">
+                                    <select class="form-control">
+                                        <option>投放中</option>
+                                        <option>暂停投放</option>
+                                    </select>
+                                </div>
+                            </div>-->
+
+                            <button type="button" class="btn btn-primary save-change">保存修改</button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="part">
+                    <h4>添加内容</h4>
+                    <div class="col-sm-offset-2" style="overflow: auto;">
+                        #foreach ($publish_tpl in $publish.publish_tpls)
+                        <div class="col-sm-6 col-sm-4 content-each">
+                            <div class="thumbnail">
+                                <div class="thumbnail">
+                                    <span class="h4">${publish_tpl.tpl_name}</span>
+                                    <img src="${publish_tpl.thumb_url}" style="width: 100%">
+
+                                    <div class="cover-div">
+                                        <a href="${publish_tpl.dynamic_url}">
+                                            <button type="button" class="btn btn-default btn-play">
+                                                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                                            </button>
+                                        </a>
+                                        <a href="/Cktv/publish_tpl/publish_tplEdit/${publish.publish_id}/${publish_tpl.publish_tpl_id}" >
+                                            <button type="button" class="btn btn-default btn-edit">
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                            </button>
+                                        </a>
+                                        <button type="button" class="btn btn-default btn-remove"
+                                                publish_tpl_id="${publish_tpl.publish_tpl_id}">
+                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="param-set">
+                                        <span class="h4">播放顺序</span>
+                                        <input type="number" class="form-control play-order" id="play-order"
+                                               value="${publish_tpl.play_order}" publish_tpl_id="${publish_tpl.publish_tpl_id}">
+                                    </div>
+
+                                    <!--<a href="#" class="btn btn-primary" role="button">设置</a>-->
+                                    <div class="param-set">
+                                        <span class="h4">时长</span>
+                                        <input type="text" class="form-control play-time" id="play-time" placeholder="0.0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        #end
+                    </div>
+                    <div id="content-set" class="col-sm-offset-2">
+                        <a type="button" class="btn btn-primary"
+                           href="/Cktv/tpl/tplsPage/${publish.publish_id}" id="add-modal">添加内容</a>
+                        <a type="button" class="btn btn-primary"
+                           href="#" id="confirm-set">确认设置</a>
+                    </div>
+
+                </div>
+
+                <div class="part">
+                    <h4>添加设备</h4>
+                    <div class="col-sm-offset-2">
+                        <table class="table publishDeviceTable">
+                            <thead>
+                            <tr>
+                                <th>分区</th>
+                                <th>店铺</th>
+                                <th>屏幕名称</th>
+                                <th>操作</th>
+                               <!-- <th><span class="glyphicon glyphicon-remove" aria-hidden="true"
+                                          style="display: none;"></span></th>-->
+                            </tr>
+                            </thead>
+                            <tbody id="tableList">
+                            <!--已有设备在刷新页面时就有-->
+                            #foreach ($publish_device in $publish.publish_devices)
+                            <tr device_did="${publish_device.devicedevice_did.device_did}">
+                                <td></td>
+                                <td></td>
+                                <td>${publish_device.devicedevice_did.screen_name}</td>
+                                <td style="padding-left: 15px"><span class="glyphicon glyphicon-remove device-remove" aria-hidden="true"
+                                          device_did="${publish_device.devicedevice_did.device_did}"></span></td>
+                            </tr>
+                            #end
+                            <!--我添加时才显示的设备-->
+                            </tbody>
+                        </table>
+                        <button class="btn btn-primary add-display" type="button" data-toggle="#mymodal-add"
+                                href="/Cktv/publish_device/select_devices">新增设备
+                        </button>
+
+                        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true" id="mymodal-add">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span
+                                                aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                        </button>
+                                        <h4 class="modal-title">添加设备</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <p>请选择您要新增的设备</p>
+
+                                        <div id="deviceList">
+                                            <!--新增部分用模版写-->
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                id="save-device">保存
+                                        </button>
+                                    </div>
+                                </div>  <!-- 关闭 modal-content -->
+                            </div>    <!-- 关闭 modal-dialog -->
+                        </div>      <!-- 关闭 modal -->
+                    </div>
+                </div>
+
+                <div class="part">
+                    <h4>时段信息</h4>
+                    <div class="col-sm-offset-2">
+                        <!-- 以下的表单是存在于页面上的内容，用户点击修改时，可以修改 -->
+                        <form role="form" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="radio-inline col-sm-2">开始时间</label>
+
+                                <div class="col-sm-9">
+                                    <label class="radio-inline">${publish.start_time}</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="radio-inline col-sm-2">结束时间</label>
+
+                                <div class="col-sm-9">
+                                    <label class="radio-inline">${publish.end_time}</label>
+                                </div>
+                            </div>
+
+                            <!--<div class="form-group">
+                                <label class="radio-inline col-sm-2">当前时段</label>
+
+                                <div class="col-sm-9">
+                                    <label class="radio-inline">全天轮播</label>
+                                </div>
+                            </div>-->
+
+                            <button class="btn btn-primary modify" type="button" data-toggle="#mymodal-modify">点击修改
+                            </button>
+                        </form>
+                        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                             aria-hidden="true" id="mymodal-modify">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span
+                                                aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                        </button>
+                                        <h4 class="modal-title">设定时段</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <p>请选择您要设定的时段</p>
+
+                                        <form role="form" class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" value="option1" name="time" id="hour">小时时段
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" value="option2" name="time" id="day">全天轮播
+                                                    </label>
+                                                    <!--<label class="radio-inline">
+                                                        <input type="radio" value="option3" name="time" id="week">周时段
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" value="option4" name="time" id="date">自定义时段
+                                                    </label>-->
+                                                </div>
+                                            </div>
+                                            <div class="hour" style="display: none;">
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">时段独占</label>
+
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control occupy-select">
+                                                            <option value="独占">独占</option>
+                                                            <option value="非独占">非独占</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">开始时间</label>
+
+                                                    <div class="col-sm-9">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">开始</span>
+                                                            <input type="text" class="form-control" placeholder="00:00"
+                                                                   id="timepicker-hourstarttime">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">结束时间</label>
+
+                                                    <div class="col-sm-9">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">结束</span>
+                                                            <input type="text" class="form-control" placeholder="00:00"
+                                                                   id="timepicker-hourovertime">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="day" style="display: none;">
+                                            </div>
+                                            <!--<div class="week" style="display: none;">
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">时段独占</label>
+
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control occupy-select">
+                                                            <option value="独占">独占</option>
+                                                            <option value="非独占">非独占</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">星期</label>
+
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control week-select">
+                                                            <option value="星期一">星期一</option>
+                                                            <option value="星期二">星期二</option>
+                                                            <option value="星期三">星期三</option>
+                                                            <option value="星期四">星期四</option>
+                                                            <option value="星期五">星期五</option>
+                                                            <option value="星期六">星期六</option>
+                                                            <option value="星期日">星期日</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">开始时间</label>
+
+                                                    <div class="col-sm-9">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">开始</span>
+                                                            <input type="text" class="form-control" placeholder="00:00"
+                                                                   id="datetimepicker-weekstarttime">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">结束时间</label>
+
+                                                    <div class="col-sm-9">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">结束</span>
+                                                            <input type="text" class="form-control" placeholder="23:59"
+                                                                   id="datetimepicker-weekovertime">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+-->
+                                            <!--<div class="date" style="display: none;">
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">时段独占</label>
+
+                                                    <div class="col-sm-9">
+                                                        <select class="form-control occupy-select">
+                                                            <option value="独占">独占</option>
+                                                            <option value="非独占">非独占</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">开始日期</label>
+
+                                                    <div class="col-sm-9">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">开始</span>
+                                                            <input type="text" class="form-control" placeholder="日期 时间"
+                                                                   id="datetimepicker-datestarttime">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="radio-inline col-sm-2">结束日期</label>
+
+                                                    <div class="col-sm-9">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">结束</span>
+                                                            <input type="text" class="form-control" placeholder="日期 时间"
+                                                                   id="datetimepicker-dateovertime">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>-->
+                                        </form>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary save" >保存
+                                        </button>
+                                    </div>
+
+                                </div>  <!-- 关闭 modal-content -->
+                            </div>    <!-- 关闭 modal-dialog -->
+                        </div>      <!-- 关闭 modal -->
+                        <!--<div class="modal fade" id="mymodal-save" tabindex="-1" role="dialog"
+                             aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span
+                                                aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                        </button>
+                                        <h4 class="modal-title">来自创凯中心的提醒</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>恭喜您，修改成功！</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                                    </div>    &lt;!&ndash; 关闭 modal-footer&ndash;&gt;
+                                </div>      &lt;!&ndash; 关闭 modal-content&ndash;&gt;
+                            </div>        &lt;!&ndash; 关闭 modal-dialog&ndash;&gt;
+                        </div>-->          <!-- 关闭 modal-->
+                    </div>
+                </div>
+
+                <div class="part last">
+                    <h4>投放</h4>
+
+                    <div class="col-sm-offset-2">
+                        <p>请确认您的所有信息都已编辑完成，点击立即投放，即可在屏幕上生效。</p>
+
+                        <button type="button" class="btn btn-primary put">#if ($publish.publish_status==1)暂停投放#else立即投放#end</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/Cktv/libs/jquery.js"></script>
+<script type="text/javascript" src="/Cktv/libs/layer-v2.2/layer/layer.js"></script>
+<script type="text/javascript" src="/Cktv/libs/handlebars-v4.0.5.js"></script>
+<script type="text/javascript" src="/Cktv/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Cktv/libs/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/common1_1.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/ajax.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/display-manage/add-info.js"></script>
+
+<!-- 模版，模态框弹出 -->
+<script id="device-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="device">
+        <button type="button" class="btn btn-primary btn-lg btn-screen">
+            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+        </button>
+        <span class="h4">{{screen_name}}</span>
+        <button type="button" device_did={{device_did}} device_name="{{device_name}}" class="btn btn-default btn-ok"
+                style="display:none;">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </button>
+    </div>
+    {{/each}}
+</script>
+<!--模版，添加设备的表格-->
+<script id="table-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <tr device_did="{{device_did}}">
+        <td>{{area}}</td>
+        <td>{{shop}}</td>
+        <td>{{screen_name}}</td>
+        <td style="padding-left: 15px"><span class="glyphicon glyphicon-remove device-remove" aria-hidden="true"
+                  device_did="{{device_did}}"></span></td>
+    </tr>
+    {{/each}}
+</script>
+</body>
+</html>

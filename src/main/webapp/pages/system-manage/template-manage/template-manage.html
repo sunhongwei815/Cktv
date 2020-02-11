@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模版列表</title>
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/system-manage/buttons.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/system-manage/template-manage/template-manage.css">
+</head>
+<body>
+#parse("/pages/system-manage/common/header.html")
+#parse("/pages/system-manage/common/system-common-left.html")
+<div id="right">
+    <div class="right">
+        <div class="right_head">
+            <a class="link_name">模板管理</a>
+            <span>/</span>
+            <a class="left_link">模板列表</a>
+        </div>
+        <div class="right_body">
+            <div id="rightBody" class="container">
+                <div class="add">
+                    <input type="button" id="add" class="btn btn-default button-design" value="新增模板">
+                </div>
+                <div id="main"></div>
+                <nav>
+                    <ul class="pagination">
+                        <li>
+                            <a aria-label="Previous" id="prev">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li id="page">
+                            <!--页数由handlebars渲染-->
+                        </li>
+                        <li>
+                            <a aria-label="Next" id="next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div id="wrap">
+                    <form id="uploadForm">
+                        <div class="formLeft">
+                            <p>上传文件：</p>
+                            <p>模板模式：</p>
+                            <p>缩略图：</p>
+                            <p>分辨率：</p>
+                            <!-- <p>模板时长：</p>-->
+                            <p>包含视频：</p>
+                            <!--<div class="videoIfo">
+                                <p>X坐标：</p>
+                                <p>Y坐标：</p>
+                                <p>视屏宽度：</p>
+                                <p>视屏高度：</p>
+                            </div>-->
+                        </div>
+                        <div class="formRight">
+                            <!-- 上传文件 -->
+                            <div class="files">
+                                <span class="text">选择文件</span>
+                                <input class="file" accept="application/x-zip-compressed" name="file" type="file"/>
+                            </div>
+                            <div class="model">
+                                <input type="radio" name="tpl_model" class="tpl_model " value="1">横屏
+                                <input type="radio" name="tpl_model" class="tpl_model " value="2">竖屏
+                            </div>
+                            <div class="pict">
+                                <span class="text">选择图片</span>
+                                <input  type="file" name="thumb" accept="image/*" id="file-image">
+                            </div>
+                            <div class="size">
+                                <!--<input type="text" name="tpl_size" class="tpl_size txt">-->
+                                <select name="tpl_size" class="tpl_size txt">
+                                    <option value="1920*1080">1920*1080</option>
+                                    <option value="1366*768">1366*768</option>
+                                </select>
+                            </div>
+                            <!--<div class="videoLgt">
+                                <input type="text" name="duration" class="tpl_play_time txt">
+                            </div>-->
+                            <div class="video">
+                                <input type="radio" name="is_video" class="is_video" value="1">含有视屏
+                                <input type="radio" name="is_video" class="is_video" value="2">不含视屏
+                            </div>
+                            <!--<div class="videoIfo">
+                                <div class="video-x">
+                                    <input type="text" name="tpl_x_coordinate" value="0"  class="tpl_x_coordinate txt">
+                            </div>
+                                <div class="video-y">
+                                    <input type="text" name="tpl_y_coordinate" value="0"   class="tpl_y_coordinate txt">
+                            </div>
+                                <div class="video-width">
+                                    <input type="text" name="tpl_width" value="0"   class="tpl_width txt">
+                            </div>
+                                <div class="video-height">
+                                    <input type="text" name="tpl_height" value="0"   class="tpl_height txt">
+                            </div>
+                            </div>-->
+                        </div>
+                        <div class="submit">
+                            <input class="button button-action button-rounded button-tiny" id="submit" type="button"  value="提交">
+                            <input class="button button-action button-rounded button-tiny" id="close" type="button" value="取消">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+        </div>
+    </div>
+</div>
+
+<script src="/Cktv/src/scripts/system-manage/template-manage/template-manage.js"></script>
+<script id="template-list" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="box">
+        <div class="pic">
+            <img src="{{thumb_url}}" alt="photo">
+            <h4>{{tpl_name}}</h4>
+        </div>
+        <div id="boxPage" class="boxPage">
+            <div class="visit" myTpl_visit="{{dynamic_url}}">
+                <input type="button" class="btn btn-default btn-play">
+                <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+            </div>
+            <div class="det">
+                <input type="button" class="btn btn-default btn-remove delete" myTpl_id="{{tpl_id}}">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </div>
+            <div class="download" myTpl_id="{{tpl_id}}">
+                <input type="button"   class="btn btn-default btn-down" >
+                <a class="fileDown" download="template"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></a>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
+<script id="page-list" type="text/x-handlebars-template">
+    {{#page this}}
+    <a class="eachbtn">{{this}}</a>
+    {{/page}}
+</script>
+</body>
+</html>

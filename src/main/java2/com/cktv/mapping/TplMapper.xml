@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cktv.mapper.TplMapper">
+<select id="selectByPrimaryKey" resultType="com.cktv.domain.Tpl">
+    select *from tpl where tpl_id=#{tpl_id}
+</select>
+
+<select id="selectAll" resultType="com.cktv.domain.Tpl">
+select *from tpl
+</select>
+  <!--分页查找-->
+    <select id="selectTplsByPages" resultType="com.cktv.domain.Tpl">
+        select *from tpl limit #{startNum},#{size}
+    </select>
+    <select id="lengthOfAllTpl" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM tpl
+    </select>
+    <!--根据tpl_model来查询-->
+    <select id="selectTplsByTpl_model" resultType="com.cktv.domain.Tpl">
+        select *from tpl where tpl_model=#{tpl_model}
+    </select>
+    <!--根据name查询-->
+    <select id="selectByTplName" resultType="com.cktv.domain.Tpl">
+        select *from tpl where tpl_name=#{tpl_name}
+    </select>
+<insert id="insertTpl" >
+INSERT into tpl  (tpl_name,thumb_url,tpl_model,tpl_business,dynamic_url,user_id,tpl_size,is_video,tpl_address,edit_url,edit_address,duration,tpl_x_coordinate,tpl_y_coordinate,tpl_width,tpl_height,video_source_url) values  (#{tpl_name},#{thumb_url},#{tpl_model},#{tpl_business},#{dynamic_url},#{user_id},#{tpl_size},#{is_video},#{tpl_address},#{edit_url},#{edit_address},#{duration},#{tpl_x_coordinate},#{tpl_y_coordinate},#{tpl_width},#{tpl_height},#{video_source_url})
+</insert>
+
+<update id="updateByPrimaryKey" >
+update tpl set tpl_name = #{tpl_name},thumb_url = #{thumb_url},tpl_model = #{tpl_model},tpl_business = #{tpl_business},dynamic_url = #{dynamic_url},user_id = #{user_id},tpl_size = #{tpl_size},is_video = #{is_video},tpl_address = #{tpl_address},edit_url = #{edit_url},edit_address = #{edit_address},duration=#{duration},tpl_x_coordinate=#{tpl_x_coordinate},tpl_y_coordinate=#{tpl_y_coordinate},tpl_width=#{tpl_width},tpl_height=#{tpl_height},video_source_url=#{video_source_url} where tpl_id=#{tpl_id}
+</update>
+<delete id="deleteTplByTpl_id">
+    delete from tpl WHERE tpl_id =#{tpl_id}
+</delete>
+</mapper>

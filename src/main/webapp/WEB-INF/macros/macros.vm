@@ -1,0 +1,62 @@
+#macro(pager $__uri $__obj_count $__page_size)
+    #if($__obj_count > $__page_size)
+        #if($__uri.indexOf("?")>=0)
+            #set($param_char='&')
+        #else
+            #set($param_char='?')
+        #end
+        #if(!$__uri.endsWith("?") && !$__uri.endsWith("&"))
+            #set($__p_uri = "${__uri}${param_char}")
+        #else
+            #set($__p_uri = $__uri)
+        #end
+        #set($PAGE_COUNT = $osc_tool.page_count($__obj_count, $__page_size))
+        #set($__p = $link.param("p",1))
+        #if($__p <= $PAGE_COUNT)
+            #set($pre_page = $__p - 1)
+            #set($next_page = $__p + 1)
+            #if($__p > 3)
+                #set($begin_idx = $__p - 3)
+            #else
+                #set($begin_idx = 1)
+            #end
+            #set($end_idx = $begin_idx + 9)
+            #if($end_idx > $PAGE_COUNT)
+                #set($end_idx = $PAGE_COUNT)
+            #end
+        <ul class="pager">
+            #if($__p > 1)
+                <li class='page prev'>
+                    <a href="${__p_uri}p=$pre_page">&lt;</a>
+                </li>
+            #end
+            #if($begin_idx > 1)
+                <li class='page'>
+                    <a href="${__p_uri}">1</a>
+                </li>
+            #end
+            #foreach($idx in [$begin_idx..$end_idx])
+                #if($idx != $__p)
+                    <li class='page'>
+                        <a href="${__p_uri}p=$idx">$idx</a>
+                    </li>
+                #else
+                    <li class='page current'>
+                        <a href="${__p_uri}p=$idx">$idx</a>
+                    </li>
+                #end
+            #end
+            #if($end_idx < $PAGE_COUNT)
+                <li class='page'>
+                    <a href="${__p_uri}p=$PAGE_COUNT">$PAGE_COUNT</a>
+                </li>
+            #end
+            #if($__p < $PAGE_COUNT)
+                <li class='page next'>
+                    <a href="${__p_uri}p=$next_page">&gt;</a>
+                </li>
+            #end
+        </ul>
+        #end
+    #end
+#end

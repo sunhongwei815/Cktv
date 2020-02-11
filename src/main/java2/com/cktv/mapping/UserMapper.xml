@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cktv.mapper.UserMapper">
+    <sql id="Base_Column_List" >
+        user_id, user_name, user_pwd, user_desc, part_id, security_key,add_date,user_status
+    </sql>
+
+    <select id="selectByUser_name" resultType="com.cktv.domain.User" parameterType="java.lang.String">
+        select * from user where user_name=#{user_name}
+    </select>
+
+    <select id="userLogin" resultType="com.cktv.domain.User" parameterType="java.lang.String">
+        select * from user where user_name=#{user_name,jdbcType=VARCHAR} and user_pwd = #{user_pwd,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectUsersByUser_status" resultType="com.cktv.domain.User" parameterType="java.lang.Long">
+        select * from user where user_status = #{user_status} LIMIT #{count},#{pageSize}
+    </select>
+
+    <select id="selectLengthOfUser" resultType="java.lang.String">
+        select count(*) from user
+    </select>
+
+    <select id="selectByUser_id" resultType="com.cktv.domain.User">
+        select * from user where user_id = #{user_id}
+    </select>
+
+    <select id="lengthOfUsersByUser_Status" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM user WHERE user_status=#{user_status}
+    </select>
+    <insert id="insertUser">
+        INSERT user  (user_type,user_name,user_pwd,user_desc,part_id,security_key,add_date,user_status) values  (#{user_type},#{user_name},#{user_pwd},#{user_desc},#{part_id},#{security_key},#{add_date},#{user_status})
+    </insert>
+
+    <delete id="deleteUserByUser_id" parameterType="java.lang.Long">
+        delete from user where user_id = #{user_id}
+    </delete>
+
+    <update id="updateByPrimaryKey">
+        update user set user_type = #{user_type},user_name = #{user_name},user_pwd = #{user_pwd},user_desc = #{user_desc},part_id = #{part_id},security_key = #{security_key},add_date=#{add_date},user_status=#{user_status} where user_id=#{user_id}
+    </update>
+
+    <update id="updateUser_statusByUser_id" parameterType="java.lang.Long" >
+        update user set user_status = #{user_status} where user_id = #{user_id}
+    </update>
+
+</mapper>

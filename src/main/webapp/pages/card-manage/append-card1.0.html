@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新增卡片</title>
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/card-manage/append-card.css">
+</head>
+<body>
+<input type="hidden" publish_id="${publish_id}" id="publish_id">
+<input type="hidden" publish_screen_mode="${publish_screen_mode}" id="publish_screen_mode">
+<!--总体头部和侧边栏-->
+#parse ("/common/header.html")
+#parse ("/common/common-left1.html")
+<!--总体右侧-->
+<div id="right">
+    <div class="right">
+        <div class="right_head">
+            <a class="link_name">内容管理</a>
+            <span>/</span>
+            <a class="left_link">新增卡片</a>
+        </div>
+        <div class="right_body">
+            <!--选择按钮-->
+            <div class="body_up">
+                <div class="row_one" style="overflow: hidden">
+                    <span class="col-md-2" style="text-align: right;" id="tplSource">模板来源</span>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" checked="true" name="source_radio"  value="1">  模板库</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="source_radio"  value="2">  历史纪录</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="source_radio"  value="3">  定制</label>
+                </div>
+                <hr>
+                <div class="row_two" id="tplModel" style="overflow: hidden">
+                    <span class="col-md-2" style="text-align: right;">横/竖模式</span>
+                    <label class="col-md-2" id="hengping"><input type="radio" class="cardRadio" name="screen_type_radio" value="1">  横屏模板</label>
+                    <label class="col-md-2" id="shuping"><input type="radio" class="cardRadio" name="screen_type_radio" value="2">  竖屏模板</label>
+                </div>
+                <hr>
+                <div class="row_three" id="posterType" style="overflow: hidden">
+                    <span class="col-md-2" style="text-align: right;">海报类型</span>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" checked="true" name="poster_type_radio" value="1">  迎宾海报</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="poster_type_radio" value="2">  商品海报</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="poster_type_radio" value="3">  价目板</label>
+                </div>
+                <hr>
+                <div class="row_four" id="tplBusiness" style="overflow: hidden">
+                    <span class="col-md-2" style="text-align: right;">模板行业</span>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" checked="true" name="industry_radio" value="1">  餐饮</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="2">  酒店</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="3">  商场</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="4">  美容美发</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="5">  服饰服装</label>
+                    <label class="col-md-2 col-md-offset-2"><input type="radio" class="cardRadio" name="industry_radio" value="6">  医疗机构</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="7">  教育机构</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="8">  房产机构</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="9">  超市</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="10">  金融</label>
+                    <label class="col-md-2 col-md-offset-2"><input type="radio" class="cardRadio" name="industry_radio" value="11">  公司</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="12">  旅游</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="13">  通讯</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="14">  宣传推广</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="15">  节日主题</label>
+                    <label class="col-md-2 col-md-offset-2"><input type="radio" class="cardRadio" name="industry_radio" value="16">  案例展示</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="industry_radio" value="17">  其他</label>
+                </div>
+                <hr>
+                <div class="row_five" id="tplScene" style="overflow: hidden">
+                    <span class="col-md-2" style="text-align: right;">使用场景</span>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" checked="true" name="scene_radio" value="1">  菜品推荐</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="scene_radio" value="2">  优惠促销</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="scene_radio" value="3">  节日庆典</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="scene_radio" value="4">  企业展示</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="scene_radio" value="5">  人才招聘</label>
+                    <label class="col-md-2 col-md-offset-2"><input type="radio" class="cardRadio" name="scene_radio" value="6">  价目展示</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="scene_radio" value="7">  视频播放</label>
+                    <label class="col-md-2"><input type="radio" class="cardRadio" name="scene_radio" value="8">  其他</label>
+                </div>
+                <hr id="body_up_bottom">
+            </div>
+            <!--图片-->
+            <div class="body-down">
+                <div id="picture_con">
+                    <div class="row">
+                        <ul id="my_card_template" >
+                            <!--模板渲染-->
+                        </ul>
+                    </div>
+                </div>
+                <div id="more-temlplate">
+                    <span >----<a href="#">更多模板</a>----</span>
+                </div>
+                <div id="confirm">
+                    <button id="content_confirm" class="btn btn-default">确认</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/Cktv/libs/jquery.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/ajax.js"></script>
+<script type="text/javascript" src="/Cktv/libs/handlebars-v4.0.5.js"></script>
+<script type="text/javascript" src="/Cktv/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/common1_1.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/card-manage/append-card.js"></script>
+
+<script id="card_template" type="text/x-handlebars-template">
+    {{#each this}}
+    <li class="col-md-4">
+        <div class="card">
+            <div class="photo">
+                {{!引入动态模板(卡片)}}
+                <img src={{thumb_url}}>
+                <div class="photo select tplSelect hide" status="0" tpl_id="{{tpl_id}}">
+                    <ix class="glyphicon glyphicon-ok"></ix>
+                </div>
+            </div>
+            <div>
+                <i class="glyphicon glyphicon-eye-open"></i>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</script>
+</body>
+</html>

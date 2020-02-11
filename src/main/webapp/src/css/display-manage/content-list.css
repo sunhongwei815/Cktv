@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.right_body {
+  background-color: #fff;
+}
+.right_body h4 {
+  text-indent: 2em;
+}
+.right_body .nav {
+  border-bottom: 1px solid #ccc;
+}
+.right_body .nav ul {
+  list-style: none;
+}
+.right_body .nav ul li {
+  font-size: 18px;
+  float: left;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #fff;
+}
+.right_body .nav ul li:hover {
+  border: 1px solid #ccc;
+  border-bottom: 5px;
+  border-radius: 4px 4px 0 0;
+}
+.right_body .nav ul > li {
+  margin-right: 30px;
+}
+.cbp_tmtimeline {
+  margin: 50px 0 0 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+.cbp_tmtimeline:before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  bottom: 0px;
+  width: 10px;
+  background: #afdcf8;
+  left: 10%;
+  margin-left: -10px;
+}
+.cbp_tmtimeline > li {
+  position: relative;
+  /* &:nth-child(odd) {
+			.cbp_tmlabel {
+			background: #6cbfee;
+			&:after {
+				border-right-color: #6cbfee;
+				}
+			}
+		} */
+}
+.cbp_tmtimeline > li .cbp_tmtime {
+  display: block;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  position: absolute;
+  top: -12px;
+  left: 60px;
+  font-size: 2.9em;
+  color: #fff;
+  background-color: #afdcf8;
+  border-radius: 50%;
+}
+.cbp_tmtimeline > li .cbp_tmlabel {
+  margin: 0px 60px 15px 15%;
+  border: 1px solid #ccc;
+  border-left: 3px solid #ccc;
+  padding: 2em;
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 1.4;
+  position: relative;
+  border-radius: 0 5px 5px 0;
+  -o-box-shadow: 2px 2px 2px #ddd;
+  box-shadow: 2px 2px 2px #ddd;
+}
+.cbp_tmtimeline > li .cbp_tmlabel:after {
+  right: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-right-color: #ccc;
+  border-width: 15px;
+  top: 10px;
+}
+.cbp_tmtimeline > li .cbp_tmlabel .header {
+  border-bottom: 1px solid #ccc;
+}
+.cbp_tmtimeline > li .cbp_tmlabel .header span {
+  font-size: 18px;
+}
+.cbp_tmtimeline > li .cbp_tmlabel .header span:last-child {
+  display: inline-block;
+  float: right;
+}
+.cbp_tmtimeline > li .cbp_tmlabel .body h5 {
+  font-size: 16px;
+}
+.cbp_tmtimeline > li .cbp_tmlabel .body h5:first-child {
+  margin-top: 20px;
+}

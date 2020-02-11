@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#right .right_body {
+  background-color: #fff;
+}
+#right form {
+  font-size: 16px;
+  color: #585555;
+}
+.form-group {
+  margin-top: 29px;
+}
+.form-group input .special-name {
+  color: #585555;
+}
+.alert-default#alert {
+  padding: 0;
+  color: red;
+}
+.panel-body {
+  padding: 0;
+}
+.panel-body h4 {
+  text-indent: 2em;
+}

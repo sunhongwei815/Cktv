@@ -1,0 +1,19 @@
+{
+  "curly": true,
+  "es3": true,
+  "indent": 2,
+  "newcap": true,
+  "noarg": true,
+  "undef": true,
+  "unused": true,
+  "quotmark": "single",
+  "maxdepth": 4,
+  "maxparams": 5,
+  "strict": true,
+  "asi": true,
+  "boss": true,
+  "lastsemic": true,
+  "loopfunc": true,
+  "multistr": true,
+  "camelcase": true
+}

@@ -1,0 +1,71 @@
+.container {
+  width: 1385px;
+  margin-top: 100px;
+  margin-left: 412px;
+  margin-right: 0px;
+  border: 1px solid grey;
+}
+.content-text {
+  border-top: 2px solid grey;
+}
+.content-pattern {
+  width: 1300px;
+  height: auto;
+  margin: 20px auto;
+}
+.box-list {
+  width: 1300px;
+  height: auto;
+  margin: 30px auto;
+}
+.choose-line {
+  display: inline-block;
+  width: 200px;
+  height: 35px;
+  font-size: 1.1em;
+  font-weight: 200;
+}
+label {
+  width: 200px;
+  height: 35px;
+  text-align: center;
+  font-size: 1.1em;
+  font-family: Microsoft YaHei;
+  font-weight: 200;
+}
+thead th {
+  text-align: center;
+  font-size: 1.1em;
+  font-family: "Microsoft YaHei";
+  font-weight: 200;
+}
+tbody tr {
+  height: 170px;
+  background-color: #E2F3E2;
+  text-align: center;
+  font-size: 1.1em;
+  font-family: "Microsoft YaHei";
+  font-weight: 200;
+}
+.choose-btn {
+  width: 200px;
+  height: auto;
+  margin: 0 878px;
+}
+td.suolue-photo {
+  width: 330px;
+  height: auto;
+}
+td.editor-info {
+  width: 270px;
+  height: auto;
+}
+td.add-late {
+  width: 328px;
+  height: auto;
+}
+td.operate {
+  width: 274px;
+  height: auto;
+  text-align: left;
+}

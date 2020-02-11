@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑卡片</title>
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/Cktv/libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/Cktv/libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/card-manage/edit-card.css">
+</head>
+<body>
+#parse("/common/tpl-header.html")
+<input publish_id="${publish_id}" type="hidden" id="publish_id">
+<input publish_tpl_id="${publish_tpl.publish_tpl_id}" type="hidden" id="publish_tpl_id">
+<div class="wrap">
+    <div id="wrap">
+        <div id="save">
+            <button class="btn btn-lg save">保存修改</button>
+        </div>
+        <div id="tpl_frame" class="col-md-9">
+            <div id="pic_tpl_mask" class="tpl_mask hide">
+                <form id="pic_form">
+                    <a href="javascript:;" id="sel_photo" class="file">选择图片
+                        <input type="file" name="file" id="file">
+                    </a>
+                    <input type="hidden" name="publish_tpl_id" value="${publish_tpl.publish_tpl_id}">
+                </form>
+            </div>
+            <div id="video_tpl_mask" class="tpl_mask hide">
+                <form id="form">
+                    <a href="javascript:;" id="sel_video" class="file">选择视频
+                    </a>
+                    <input type="hidden" name="publish_tpl_id" value="${publish_tpl.publish_tpl_id}">
+                </form>
+            </div>
+            <iframe scrolling="no" id="myiframe" onload="on_load(this)" class="import_tpl"
+                    src="${publish_tpl.dynamic_url}">
+            </iframe>
+        </div>
+        <div id="operate" class="col-md-2">
+            <div id="edit_font" class="operate">
+                <i class="fa fa-font"></i>
+                <p class="operate_mask">编辑文字</p>
+            </div>
+            #if($publish_tpl.is_video != 1)<!--如果不是视频模板-->
+            <div id="replace_img" class="operate">
+                <i class="fa fa-file-image-o"></i>
+                <p class="operate_mask ">替换图片</p>
+            </div>
+            #else<!--如果是视频模板-->
+            <div id="replace_video" class="operate">
+                <i class="fa fa-video-camera"></i>
+                <p class="operate_mask ">替换视频</p>
+            </div>
+            #end
+            <!--<div id="preview" class="operate">
+                <i class="fa fa-play-circle"></i>
+                <p class="operate_mask">预览效果</p>
+            </div>-->
+            <!--<div id="set_property" class="operate">
+                <i class="fa fa-cogs"></i>
+                <p class="operate_mask">设置属性</p>
+            </div>-->
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/Cktv/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/Cktv/libs/layer-v2.2/layer/layer.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/ajax.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/card-manage/edit-card.js"></script>
+<script type="text/javascript" src="/Cktv/libs/handlebars-v4.0.5.js"></script>
+<!--handlebars模板-->
+<script id="wordLine_template" type="text/x-handlebars-template">
+    <div id="layer">
+        <div id="layer_tool"></div>
+        <div id="layer_content">
+            <textarea id="wordLine">{{wordLine}}</textarea>
+            <button id="confirm" class="btn btn-default">确认</button>
+            <button id="cancel" class="btn btn-default">取消</button>
+        </div>
+    </div>
+</script>
+<script id="setProperty_template" type="text/x-handlebars-template">
+    <div id="setProperty_content">
+        <form>
+            <div id="logoStatus">
+                <label class="pro col-md-4">Logo状态</label>
+                <p class="col-md-3"><input type="radio" value="show">
+                    显示</p>
+                <p class="col-md-3"><input type="radio" value="hide">
+                    隐藏</p>
+            </div>
+            <div id="tplTime">
+                <label class="pro col-md-4">模板时长</label>
+                <input class="col-md-3" type="number" value="time">
+                <p class="col-md-5">秒</p>
+            </div>
+            <div id="tplName">
+                <label class="pro col-md-4">模板名称</label>
+                <p class="col-md-8">HD_welposterH_0001152</p>
+            </div>
+            <div id="tplAuthor">
+                <label class="pro col-md-4">模板作者</label>
+                <p class="col-md-8">lilin</p>
+            </div>
+            <div id="regTime">
+                <label class="pro col-md-4">注册时间</label>
+                <p class="col-md-8">2016-03-19 00:00</p>
+            </div>
+            <div id="btn">
+                <button class="btn btn-primary">确定</button>
+                <button class="btn btn-primary">取消</button>
+            </div>
+        </form>
+    </div>
+</script>
+<script id="videoListTemplate" type="text/x-handlebars-template">
+    <div id="popContent">
+        <div id="video">
+            {{#each this}}
+            <div class="videoModel col-md-4">
+                <div class="basicInfo">
+                    <input type="radio" name="video" value="">
+                    <span>{{video_name}}</span>
+                </div>
+                <div class="video">
+                    <img video_url="{{video_url}}" src="{{video_thumb_url}}" alt="图片不存在">
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{!<hr>
+        <div id="operateBtn">
+            <button class="btn btn-default confirm" type="button">确定</button>
+            <button class="btn btn-default cancel" type="button">取消</button>
+        </div>}}
+    </div>
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cktv.mapper.Publish_tplMapper">
+
+<select id="selectPublish_tplsByPublish_id"  resultType="com.cktv.domain.Publish_tpl">
+ select * from publish_tpl where publish_id = #{publish_id}
+</select>
+
+<select id="selectByPrimaryKey" resultType="com.cktv.domain.Publish_tpl">
+select *from publish_tpl where publish_tpl_id=#{publish_tpl_id}
+</select>
+
+<select id="selectAll" resultType="com.cktv.domain.Publish_tpl">
+select *from publish_tpl
+</select>
+
+<insert id="insertPublish_tpl" useGeneratedKeys="true" keyProperty="publish_tpl_id" parameterType="com.cktv.domain.Publish_tpl" >
+INSERT into publish_tpl (tpl_name,thumb_url,tpl_model,tpl_business,dynamic_url,user_id,duration,tpl_size,play_order,is_video,publish_id,tpl_address,source_tpl_id,start_time,end_time,edit_url,edit_address,tpl_x_coordinate,tpl_y_coordinate,tpl_width,tpl_height,video_source_url) values  (#{tpl_name},#{thumb_url},#{tpl_model},#{tpl_business},#{dynamic_url},#{user_id},#{duration},#{tpl_size},#{play_order},#{is_video},#{publish_id},#{tpl_address},#{source_tpl_id},#{start_time},#{end_time},#{edit_url},#{edit_address},#{tpl_x_coordinate},#{tpl_y_coordinate},#{tpl_width},#{tpl_height},#{video_source_url})
+</insert>
+
+<update id="updateByPrimaryKey" >
+update publish_tpl set tpl_name = #{tpl_name},thumb_url = #{thumb_url},tpl_model = #{tpl_model},tpl_business = #{tpl_business},dynamic_url = #{dynamic_url},user_id = #{user_id},duration = #{duration},tpl_size = #{tpl_size},play_order = #{play_order},is_video = #{is_video},publish_id = #{publish_id},tpl_address = #{tpl_address},source_tpl_id = #{source_tpl_id},start_time = #{start_time},end_time = #{end_time},edit_url = #{edit_url},edit_address = #{edit_address},tpl_x_coordinate=#{tpl_x_coordinate},tpl_y_coordinate=#{tpl_y_coordinate},tpl_width=#{tpl_width},tpl_height=#{tpl_height},video_source_url=#{video_source_url} where publish_tpl_id=#{publish_tpl_id}
+</update>
+
+<delete id="deletePublish_tplsByPublish_id">
+delete from publish_tpl
+where publish_id = #{publish_id}
+</delete>
+
+ <delete id="deleteByPrimaryKey" >
+  delete from publish_tpl
+  where publish_tpl_id = #{publish_tpl_id}
+ </delete>
+
+ <select id="selectCountPublish_tplsByPublish_id" resultType="Long">
+ select count(*)  from publish_tpl where publish_id= #{publish_id}
+
+</select>
+
+<update id="updatePublish_tplPlay_order">
+ update publish_tpl
+ set play_order=#{play_order}
+ where publish_tpl_id =#{publish_tpl_id}
+</update>
+
+ <update id="updatePublish_tplDuration">
+  update publish_tpl
+  set duration=#{duration}
+  where publish_tpl_id =#{publish_tpl_id}
+ </update>
+
+ <!--通过主键更新非空数据-->
+ <update id="updateByPrimaryKeySelective" >
+  update publish_tpl
+  <set>
+   <if test="tpl_name!= null">
+    tpl_name = #{tpl_name,jdbcType=VARCHAR},
+   </if>
+   <if test="thumb_url != null">
+    thumb_url = #{thumb_url,jdbcType=VARCHAR},
+   </if>
+   <if test="tpl_model!= null">
+    tpl_model = #{tpl_model},
+   </if>
+   <if test="tpl_business != null">
+    tpl_business = #{tpl_business,jdbcType=VARCHAR},
+   </if>
+   <if test="dynamic_url!= null">
+    dynamic_url = #{dynamic_url,jdbcType=VARCHAR},
+   </if>
+   <if test="user_id!= null">
+    user_id = #{user_id},
+   </if>
+   <if test="duration != null">
+    duration= #{duration},
+   </if>
+   <if test="tpl_size != null">
+    tpl_size = #{tpl_size,jdbcType=VARCHAR},
+   </if>
+   <if test="play_order!= null">
+    play_order = #{play_order},
+   </if>
+   <if test="is_video != null">
+    is_video = #{is_video},
+   </if>
+   <if test="publish_id!=null">
+    publish_id= #{publish_id},
+   </if>
+   <if test="tpl_address!= null">
+   tpl_address = #{tpl_address,jdbcType=VARCHAR},
+  </if>
+   <if test="source_tpl_id != null">
+    source_tpl_id = #{source_tpl_id},
+   </if>
+   <if test="start_time!=null">
+    start_time= #{start_time,jdbcType=VARCHAR},
+   </if>
+   <if test="end_time!= null">
+    end_time= #{end_time,jdbcType=VARCHAR},
+   </if>
+   <if test="edit_url != null">
+    edit_url = #{source_tpl_id,jdbcType=VARCHAR},
+   </if>
+   <if test="edit_address!=null">
+    edit_address= #{edit_address,jdbcType=VARCHAR},
+   </if>
+
+   <if test="tpl_x_coordinate!=null">
+    tpl_x_coordinate= #{tpl_x_coordinate,jdbcType=FLOAT},
+   </if>
+   <if test="tpl_y_coordinate!=null">
+    tpl_y_coordinate= #{tpl_y_coordinate,jdbcType=FLOAT},
+   </if>
+   <if test="tpl_width!=null">
+    tpl_width= #{tpl_width,jdbcType=FLOAT},
+   </if>
+   <if test="tpl_height!=null">
+    tpl_height= #{tpl_height,jdbcType=FLOAT},
+   </if>
+   <if test="video_source_url!=null">
+    video_source_url= #{video_source_url,jdbcType=VARCHAR},
+   </if>
+  </set>
+  where publish_tpl_id = #{publish_tpl_id}
+ </update>
+ <update id="updateStart_timeEnd_time">
+  update publish_tpl
+  SET
+  start_time=#{start_time},
+  end_time=#{end_time}
+  where publish_tpl_id=#{publish_tpl_id}
+ </update>
+</mapper>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>轮播</title>
+    <style media="screen">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .imgShow {
+            width: 100vw;
+            height: 100vh;
+            /*list-style: none;
+            overflow: hidden;*/
+            position: relative;
+        }
+
+        .imgShow .pic {
+            width: 700vw;
+            position: absolute;
+            left: -100vw;
+        }
+
+        .imgShow .pic li {
+            float: left;
+        }
+
+        .imgShow .pic li img {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .imgShow .num {
+            width: 100vw;
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+        }
+
+        .imgShow .num li {
+            width: 15px;
+            height: 15px;
+            margin: 0 2px;
+            background-color: #fff;
+            opacity: 0.6;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .imgShow .num .on {
+            opacity: 1;
+        }
+
+        .imgShow .btn {
+            /*width: 70px;
+            height: 70px;
+            border-radius: 50%;*/
+            width: 40px;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.4);
+            position: absolute;
+            top: 50%;
+            margin-top: -35px;
+            text-align: center;
+            line-height: 80px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 4rem;
+            cursor: pointer;
+            font-family: "仿宋";
+        }
+
+        .imgShow .btn_left {
+            left: 4%;
+        }
+
+        .imgShow .btn_right {
+            right: 4%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="imgShow">
+        <ul class="pic">
+            #foreach($element in ${list})
+            <li><img src="$element"></li>
+            #end
+        </ul>
+        <ul class="num">
+            #foreach($page in ${size})
+            <li class="on"></li>
+            #end
+        </ul>
+        <div class="btn btn_left">&lt</div>
+        <div class="btn btn_right">&gt</div>
+    </div>
+</body>
+<script type="text/javascript" src="/Cktv/libs/jquery.js"></script>
+<script>
+    $(document).ready(function() {
+        var desIndex = 1;
+        var size = $('.pic').find('li').length;
+        var perWidth = parseInt($('.pic').css('left'));
+        // 自动播放
+        a();
+        function a() {
+             autoChange = setInterval(function() {
+                desIndex++;
+                changeTo();
+            }, 5000)
+        }
+        // 右点击事件
+        $('.btn_right').on('click', function() {
+                desIndex++;
+                changeTo();
+            })
+            // 左点击事件
+        $('.btn_left').on('click', function() {
+                desIndex--;
+                changeTo();
+            })
+            // 圆点鼠标滑动事件
+        $('.num li').hover(function() {
+                desIndex = $(this).index() + 1;
+                $('.pic').stop().animate({
+                    left: desIndex * perWidth
+                }, 2000);
+                $(this).addClass('on').siblings().removeClass('on');
+            })
+            // 滑入暂停与滑出轮播事件
+        $('.imgShow').hover(function() {
+            clearInterval(autoChange);
+        }, function() {
+            a();
+        })
+
+        function changeTo() {
+            if (desIndex < 1) {
+                desIndex = size - 2;
+                desLeft = (size - 1) * perWidth;
+                $('.pic').css('left', desLeft + "px");
+            } else if (desIndex > size - 2) {
+                desIndex = 1;
+                desLeft = 0;
+                $('.pic').css('left', desLeft + "px");
+            }
+            $('.pic').stop().animate({
+                left: desIndex * perWidth
+            }, 2000);
+            $('.num li').eq(desIndex - 1).addClass('on').siblings().removeClass('on');
+        }
+    })
+</script>
+
+</html>

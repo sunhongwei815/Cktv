@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>屏幕详情</title>
+    <link rel="stylesheet" type="text/css" href="../../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="../../src/css/device-manage.css">
+</head>
+<body>
+<input type="hidden" id="device_did" device_did="${device.device_did}">
+<!--总体头部和侧边栏-->
+#parse ("/common/header.html")
+#parse ("/common/common-left2.html")
+
+<!--总体右侧-->
+<div id="right">
+    <div class="right">
+        <div class="right_head">
+            <a class="link_name">设备管理</a>
+            <span>/</span>
+            <a class="left_link">基础单元列表</a>
+            <span>/</span>
+            <a >屏幕信息</a>
+        </div>
+        <div class="right_body">
+            <div id="screenattr" class="panel panel-default " style="margin: 20px">
+                <!--主体标题栏-->
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-hand-down">  屏幕属性</span>
+
+                    <!--<i class="glyphicon glyphicon-remove " style="width: 20px"></i>-->
+                    <i class="glyphicon glyphicon-chevron-up " style="width: 20px"></i>
+                    <i class="glyphicon glyphicon-chevron-down  hide" style="width: 20px;"></i>
+
+                </div>
+                <!--主体内容-->
+                <div class="panel-body">
+                    <!--面板头部导航栏-->
+                    <ul id="myTab" class="nav nav-tabs ">
+                        <li class="active"><a href="#basicpara" data-toggle="tab">
+                            基本参数</a></li>
+                        <li ><a href="#paraset" data-toggle="tab">参数设置</a></li>
+                        <li ><a href="#function" data-toggle="tab">功能操作</a></li>
+                    </ul>
+                    <!--面板导航栏对应的内容-->
+                    <div id="myTabContent" class="tab-content" style="margin-top: 20px">
+                        <!--基本参数-->
+                        <div class="tab-pane fade in active" id="basicpara">
+                            <div class="part-first">
+                                <table class="table">
+                                    <tr>
+                                        <td>屏幕ID：68850</td>
+                                        <td> 屏幕名称：斛兵塘</td>
+                                    </tr>
+                                    <tr>
+                                        <td>屏幕方向：横屏/支持物理旋转</td>
+                                        <td>设备厂家：Xiaomi|amlogic</td>
+                                    </tr>
+                                    <tr>
+                                        <td> 设备型号：MiBOX2</td>
+                                        <td>设备类型：小米盒子</td>
+                                    </tr>
+                                    <tr>
+                                        <td> 可用空间：0.94 G</td>
+                                        <td>运行级别：全能级</td>
+                                    </tr>
+                                    <tr>
+                                        <td>使用模式： 海报机</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="part-second">
+                                <table class="table">
+                                    <tr>
+                                        <td>海报机：V-2.1.77</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="part-third">
+                                <table class="table">
+                                    <tr>
+                                        <td>PIN码序列号：1000168987499</td>
+                                        <td>PIN码服务：全功能</td>
+                                    </tr>
+                                    <tr>
+                                        <td>有效期：2017-03-30 16:31:05</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="part-forth">
+                                <table class="table">
+                                    <tr>
+                                        <td>内容版本：1460729155</td>
+                                        <td>内容发布状态：已播放</td>
+                                    </tr>
+                                    <tr>
+                                        <td>总部发布数量：0</td>
+                                        <td>内容发布数量：3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>运行状态：离线</td>
+                                        <td>屏幕状态：无记录</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <!--参数设置-->
+                        <div class="tab-pane fade " id="paraset">
+                            <form role="form" class="form-horizontal">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label for="screenname" class="col-md-3">屏幕名称</label>
+                                        <input type="text" id="screenname" class="col-md-6">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="usemodel" class="col-md-3">使用模式</label>
+                                        <input type="text" id="usemodel" class="col-md-6">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label class="col-md-3">设备音量</label><br><br>
+                                        <div class="voice" style="overflow: hidden;">
+                                            <label class="col-md-2 col-md-push-1">最小音量</label>
+                                            <input type="range" style="width: 50%;float: left;margin-left:60px">
+                                            <input type="number"  class="col-md-2">
+                                        </div>
+                                        <br>
+                                        <div class="voice">
+                                            <label class="col-md-2 col-md-push-1">最大音量</label>
+                                            <input type="range" style="width: 50%;float: left;margin-left: 60px">
+                                            <input type="number" class="col-md-2">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3">亮度</label>
+                                        <input type="range" style="width: 50%;float: left;">
+                                        <input type="number" class="col-md-2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3">饱和度</label>
+                                        <input type="range" style="width: 50%;float: left;">
+                                        <input type="number" class="col-md-2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3">对比度</label>
+                                        <input type="range" style="width: 50%;float: left;">
+                                        <input type="number" class="col-md-2">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3">开/关机设置</label>
+                                        <div class="col-md-8">
+                                            <ul class="tab-son nav nav-tabs">
+                                                <li class="active"><a href="#start-and-end-time" data-toggle="tab">平常日</a></li>
+                                                <li class=""><a href="#start-and-end-time" data-toggle="tab">周末</a></li>
+                                                <li class=""><a href="#start-and-end-time" data-toggle="tab">自定义</a></li>
+                                                <li class=""><a href="#start-and-end-time" data-toggle="tab">特殊时段设置</a></li>
+                                            </ul>
+                                            <div  class="">
+                                                <div class="tab-pane fade in active" id="start-and-end-time">
+                                                    <form action="" role="form">
+                                                        <fieldset>
+                                                            <div class="form-group" style="margin-top: 20px;">
+                                                                <label class="col-md-3">开机时间</label>
+                                                                <input type="datetime-local" class="col-md-7">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-md-3">关机时间</label>
+                                                                <input type="datetime-local" class="col-md-7">
+                                                            </div>
+                                                            <div class="container-note alert alert-warning">
+                                                                <p class="glyphicon glyphicon-warning-sign">
+                                                                    2.0以后的版本才能支持开关机功能,当前版本为1.0
+                                                                </p>
+                                                            </div>
+                                                        </fieldset>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3">内容更新时间</label>
+                                        <form action="" role="form">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <label class="col-md-3">开始时间</label>
+                                                    <input type="datetime-local" class="col-md-7">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-3">结束时间</label>
+                                                    <input type="datetime-local" class="col-md-7">
+                                                </div>
+                                                <div class="container-note alert alert-warning">
+                                                    <p class="glyphicon glyphicon-warning-sign">
+                                                        2.0以后的版本才能支持开关机功能,当前版本为1.0
+                                                    </p>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <button class="btn btn-primary" style="float: right">保存修改</button>
+                                </fieldset>
+                            </form>
+
+                        </div>
+                        <!--功能操作-->
+                        <div class="tab-pane fade " id="function">
+                            <div class="container-note alert alert-info">
+                                <p class="glyphicon glyphicon-warning-sign">
+                                    屏幕所有的功能操作必须是在在线状态下,点击“运行状态检测”，实时检测一下运行状态。
+                                </p>
+                            </div>
+                            <div>
+                                <table class="table">
+                                    <tr>
+                                        <td>运行状态检测</td>
+                                        <td>
+                                            <button class="btn btn-primary">开机检测</button>
+                                            (当前状态:
+                                            离线
+                                            )
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>播放/停止</td>
+                                        <td><button operate-type='pause' class="btn btn-primary operate-type">停止</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>重启/关机</td>
+                                        <td>
+                                            <button operate-type="restart" class="btn btn-primary operate-type" id="restart" value="1">重启</button>
+                                            <button operate-type="close" class="btn btn-primary operate-type"  id="close" value="2">关机</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>拆机</td>
+                                        <td>
+                                            <button operate-type="break" class="btn btn-primary operate-type">拆机</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>停止/激活使用</td>
+                                        <td>
+                                            <button class="btn btn-primary">停止使用</button>
+                                            <button class="btn btn-primary">激活使用</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>人脸识别调试</td>
+                                        <td>
+                                            <button class="btn btn-primary">调试开关</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="container-note alert alert-warning">
+                                <p class="glyphicon glyphicon-warning-sign">
+                                    重启设备功能只支持海报机为2.0以后的版本（包含2.0），当前版本为：1.0
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../../libs/handlebars-v4.0.5.js"></script>
+<script type="text/javascript" src="../../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript"src ="../../src/scripts/common/common1_1.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/ajax.js"></script>
+<script type="text/javascript" src="../../src/scripts/device-manage/screen-detail.js"></script>
+</body>
+</html>

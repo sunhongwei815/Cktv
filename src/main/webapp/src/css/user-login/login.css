@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(../../img/loginBg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.wrap {
+  position: absolute;
+  margin: auto;
+  height: 567px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.content {
+  -o-box-shadow: inset 0 0 200px 5px #fff;
+  box-shadow: inset 0 0 200px 5px #fff;
+  padding: 50px;
+  border-radius: 50%;
+  width: 550px;
+  margin: 0 auto;
+}
+.content .logo {
+  width: 180px;
+  margin: 0 auto;
+}
+.content .title {
+  margin: 22px auto;
+}
+.content .title h1 {
+  margin: 22px;
+  padding: 10px;
+  font-family: STXingkai;
+  font-size: 40px;
+  color: #fff;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.style {
+  color: #fff;
+  background-color: rgba(86, 108, 145, 0.4);
+}
+.login-form .mobile {
+  color: #fff;
+  background-color: rgba(86, 108, 145, 0.4);
+  border-right: none;
+}
+.login-form .password {
+  color: #fff;
+  background-color: rgba(86, 108, 145, 0.4);
+  border-right: none;
+}
+.login-form .num-error {
+  color: #fff;
+  background-color: rgba(86, 108, 145, 0.4);
+  border-left: none;
+  display: none;
+  border-radius: 0 6px 6px 0;
+}
+.login-form .code-error {
+  color: #fff;
+  background-color: rgba(86, 108, 145, 0.4);
+  border-left: none;
+  display: none;
+  border-radius: 0 6px 6px 0;
+}
+.login-form #login {
+  margin-left: 100%;
+  border-radius: 6px;
+  background-color: rgba(91, 192, 222, 0.9);
+  font-weight: bold;
+}
+.checkbox {
+  color: white;
+}
+.checkbox label {
+  margin-left: 10%;
+}
+.checkbox a {
+  margin-left: 40%;
+  text-decoration: none;
+  color: white;
+}
+.user-icon,
+.code-icon,
+input[type=checkbox] {
+  background-color: rgba(91, 192, 222, 0.9);
+  border: #46b8da;
+}
+.mobile,
+.password {
+  border-left: #46b8da;
+}
+.mobile:hover,
+.password:hover {
+  cursor: pointer;
+}
+.glyphicon-user,
+.glyphicon-paperclip {
+  color: #fff;
+}

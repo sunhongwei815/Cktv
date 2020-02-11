@@ -1,0 +1,16 @@
+.right_body{
+    background-color: #fff;
+}
+.panel-body{
+    padding: 0;
+}
+.panel-body h4{
+    text-indent: 2em;
+}
+#right form{
+    font-size: 16px;
+    color: #585555;
+}
+.form-group{
+    margin-top: 29px;
+}

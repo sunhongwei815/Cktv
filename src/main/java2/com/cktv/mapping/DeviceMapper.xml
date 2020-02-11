@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cktv.mapper.DeviceMapper">
+
+    <select id="selectByPrimaryKey" resultType="com.cktv.domain.Device">
+        select * from device where device_did=#{device_did}
+    </select>
+
+    <select id="selectStatusByDevice_did" resultType="java.lang.Long" parameterType="java.lang.String">
+        select status from device where device_did=#{device_did}
+    </select>
+
+    <select id="selectDevicesByUser_id" resultType="com.cktv.domain.Device" parameterType="java.lang.Long">
+        select *
+        from device
+        where user_id = #{user_id};
+    </select>
+
+    <select id="selectDevicesOfUser" resultType="com.cktv.domain.Device" parameterType="java.lang.Long">
+        select * from device where user_id = #{user_id} limit #{count}, #{userDevicePageSize}
+    </select>
+
+    <select id="selectAllDevices" resultType="com.cktv.domain.Device" >
+        select *from device
+    </select>
+
+    <select id="selectLengthOfUserDevice" resultType="java.lang.Long">
+        select count(*) from device where user_id = #{user_id}
+    </select>
+
+    <select id="selectIs_registerDevicesOfUser" resultType="com.cktv.domain.Device" >
+        select * from device where user_id = #{user_id} and is_register = #{is_register} limit #{count},#{userIs_registerDevicePageSize}
+    </select>
+
+    <select id="selectDevicesByScreenName"  resultType="com.cktv.domain.Device">
+        select * from (select * from device WHERE user_id=#{user_id})as A where screen_name = #{screen_name} limit #{count},#{size}
+    </select>
+
+    <select id="selectDevicesByRunStatus" resultType="com.cktv.domain.Device" >
+    SELECT * FROM (select * from device where user_id = #{user_id} )
+    AS A WHERE run_status = #{run_status} limit #{count},#{size}
+    </select>
+
+    <select id="selectLengthOfUserIs_registerDevice" resultType="java.lang.Long" parameterType="java.lang.Long">
+        select count(*) from device where user_id = #{user_id} and is_register = #{is_register}
+    </select>
+   <!--根据屏幕名称查询-->
+    <select id="lengthOfUserDeviceByScreenName" resultType="java.lang.Long">
+        select count(*) from device where user_id = #{user_id} and screen_name = #{screen_name}
+    </select>
+
+    <!--根据运行状态查询-->
+    <select id="lengthOfUserDeviceByRunStatus" resultType="java.lang.Long" >
+        select count(*) from device where user_id = #{user_id} and run_status = #{run_status}
+    </select>
+
+    <insert id="insertDevice" parameterType="com.cktv.domain.Device">
+        INSERT device  (device_did,screen_name,resolution,status,screen_key,is_register,verify_date,verify_code_id,user_id, app_name, app_version, run_status) values  (#{device_did},#{screen_name},#{resolution},#{status},#{screen_key},#{is_register},#{verify_date},#{verify_code_id},#{user_id},#{app_name},#{app_version},#{run_status})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.cktv.domain.Device">
+        update device set screen_name = #{screen_name},resolution = #{resolution},status = #{status},screen_key = #{screen_key},is_register = #{is_register},verify_date = #{verify_date},verify_code_id = #{verify_code_id},user_id = #{user_id},app_name = #{app_name},app_version = #{app_version},run_status = #{run_status} where device_did=#{device_did}
+    </update>
+
+    <update id="updatestatusByDevice_did">
+        update device
+        set
+        run_status = #{run_status,jdbcType=VARCHAR}
+        where device_did in
+        <foreach item="item" index="index" collection="device_dids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+    <update id="updateScreen_nameByDevice_did" parameterType="java.lang.String">
+        update device
+        set
+        screen_name = #{screen_name}
+        where device_did = #{device_did}
+    </update>
+
+    <delete id="deleteDevice_didByUserId" >
+        DELETE FROM device
+        WHERE user_id=#{user_id} AND
+        device_did IN
+        <foreach item="item" index="index" collection="device_dids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>

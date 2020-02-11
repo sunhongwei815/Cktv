@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cktv.mapper.Device_sche_vMapper">
+<select id="selectByPrimaryKey" resultType="com.cktv.domain.Device_sche_v">
+select *from device_sche_v where device_sche_v_id=#{device_sche_v_id}
+</select>
+
+<select id="selectAll" resultType="com.cktv.domain.Device_sche_v">
+select *from device_sche_v
+</select>
+
+<insert id="insertDevice_sche_v" >
+INSERT device_sche_v  (sche_v,device_did,update_time) values  (#{sche_v},#{device_did},#{update_time})
+</insert>
+<select id="selectSche_vByDevice_did" resultType="Long"  >
+        select
+        sche_v
+        from device_sche_v
+        where device_did = #{device_did,jdbcType=VARCHAR}
+</select>
+<update id="updateByPrimaryKey" >
+update device_sche_v set sche_v = #{sche_v},device_did = #{device_did},update_time = #{update_time} where device_sche_v_id=#{device_sche_v_id}
+</update>
+
+    <update id="updateSche_vByDevice_dids" >
+        update device_sche_v
+        set sche_v = sche_v+1,
+        update_time= #{update_time}
+        WHERE device_did IN
+        <foreach item="item" index="index" collection="array"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+
+    </update>
+    <delete id="deleteDevice_sche_vsByDevice_dids" >
+        DELETE FROM device_sche_v
+        WHERE
+        device_did IN
+        <foreach item="item" index="index" collection="device_dids" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+</mapper>

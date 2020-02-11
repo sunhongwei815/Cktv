@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cktv.mapper.Publish_deviceMapper">
+
+<select id="selectPublish_devicesByPublish_id" resultType="com.cktv.domain.Publish_device">
+        select * from publish_device where publish_id = #{publish_id}
+</select>
+<select id="selectByPrimaryKey" resultType="com.cktv.domain.Publish_device">
+select *from publish_device where publish_device_id=#{publish_device_id}
+</select>
+<select id="selectDevice_didsByPublish_id" resultType="java.lang.String">
+                SELECT device_did FROM publish_device WHERE publish_id = #{publish_id}
+</select>
+
+<select id="selectAll" resultType="com.cktv.domain.Publish_device">
+select *from publish_device
+</select>
+
+<insert id="insertPublish_device" >
+INSERT publish_device  (publish_id,device_did) values  (#{publish_id},#{device_did})
+</insert>
+
+<update id="updateByPrimaryKey" >
+update publish_device set publish_id = #{publish_id},device_did = #{device_did} where publish_device_id=#{publish_device_id}
+</update>
+
+<select id="selectPublish_idsByDevice_did" resultType="java.lang.String">
+select publish_id from publish_device where device_did= #{device_did}
+</select>
+    <delete id="deletePublish_deviceByPublish_device" >
+        delete from publish_device
+        where publish_id = #{publish_id}
+        and device_did = #{device_did,jdbcType=VARCHAR}
+    </delete>
+
+    <delete id="deletePublish_deviceByPublish_id">
+        delete from publish_device
+        where publish_id = #{publish_id}
+    </delete>
+</mapper>

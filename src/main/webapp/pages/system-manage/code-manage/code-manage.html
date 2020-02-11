@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设备码管理</title>
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/code-manage/code-manage.css">
+<body>
+    #parse("/pages/system-manage/common/header.html")
+    #parse("/pages/system-manage/common/system-common-left.html")
+    <div id="right">
+        <div class="right">
+            <div class="right_head">
+                <a class="link_name">设备码管理</a>
+                <span>/</span>
+                <a class="left_link">设备码列表</a>
+            </div>
+            <div class="right_body">
+                <div class="operate-code">
+                    <div class="operate-left-part">
+                        <div class="code-operate-style">
+                            <input type="button" class="btn btn-default used-code button-design" type_code="1" value="已使用设备码">
+                        </div>
+                        <div class="code-operate-style">
+                            <input type="button" class="btn btn-default unused-code button-design" type_code="2" value="未使用设备码">
+                        </div>
+                        <div class="add-code">
+                            <input type="button" class="btn btn-default add-device-code button-design" value="添加设备码">
+                        </div>
+                        <div class="delete-code">
+                            <input type="button" class="btn btn-default delete-device-code button-design" value="删除设备码">
+                        </div>
+                    </div>
+
+                    <div class="operate-right-part">
+                        <div class="search-code">
+                            <input type="text" class="input-design" placeholder="请输入您的设备码">
+                            <input type="button" class="btn btn-default button-design-search" value="搜索">
+                        </div>
+                    </div>
+                </div>
+                <!--设备码列表-->
+                <div class="code-content-list">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th class="checkbox-selected select-all-delete"><input type="checkbox"></th>
+                            <th>编号</th>
+                            <th>设备码</th>
+                            <th>使用状态</th>
+                            <th>生成时间</th>
+                            <th>设备名称</th>
+                            <th>用户名称</th>
+                        </tr>
+                        </thead>
+                        <tbody id="table-list">
+
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="tab-footer code-unused" style="overflow: hidden;margin-bottom: 10px">
+                    <div class="tcdPageCodeUnused fenye"></div>
+                </div>
+                <div class="tab-footer code-used" style="overflow: hidden;margin-bottom: 10px">
+                    <div class="tcdPageCodeUsed fenye"></div>
+                </div>
+                <div id="form_parts">
+                    <div class="span_parts">
+                        <span class="input-codeInfo">设备码信息填写</span>
+                    </div>
+                    <div class="a_parts">
+                        <span class="code-info">设备码位数：</span>
+                        <input type="text" class="count_code" name="name" placeholder="请输入设备码的位数">
+                    </div>
+                    <div class="a_parts">
+                        <span class="code-info">设备码数量：</span>
+                        <input type="text" class="number_code" name="name" placeholder="请输入设备码的数量">
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Cktv/src/scripts/jquery-latest.js"></script>
+    <script src="/Cktv/src/scripts/jquery.page.js"></script>
+    <script src="/Cktv/src/scripts/code-manage/code-manage.js"></script>
+    <script id="code-list" type="text/x-handlebars-template">
+        {{#each this}}
+        <tr>
+            <td class="checkbox-selected select-delete"><input type="checkbox" value="{{verify_code_id}}"></td>
+            <td verify_code_id="{{verify_code_id}}">{{verify_code_id}}</td>
+            <td>{{verify_code}}</td>
+            <td>{{is_register}}</td>
+            <td>{{verify_date}}</td>
+            <td>{{verify_codeDevice.screen_name}}</td>
+            <td>{{verify_codeDevice.deviceUser.user_name}}</td>
+        </tr>
+        {{/each}}
+    </script>
+
+</body>
+</html>

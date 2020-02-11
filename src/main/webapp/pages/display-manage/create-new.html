@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新增专辑</title>
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/Font-Awesome-3.2.1/Font-Awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/libs/font-awesome-4.6.1/font-awesome-4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/common/common.css">
+    <link rel="stylesheet" type="text/css" href="/Cktv/src/css/display-manage/create-new.css">
+</head>
+<body>
+<!--总体头部和侧边栏-->
+#parse ("/pages/common/header.html")
+#parse ("/pages/common/common-left1.html")
+<!--总体右侧-->
+<div id="right">
+    <div class="right">
+        <div class="right_head">
+            <a >内容管理</a>
+            <span>/</span>
+            <a class="link_name">发布管理</a>
+            <span>/</span>
+            <a class="left_link">新增专辑</a>
+        </div>
+
+        <div class="right_body">
+          <div class="panel-body">
+            <h4>创建新专辑</h4>
+            <div class="col-sm-offset-2">
+              <form action="" role="form" class="form-horizontal">
+                <div class="form-group">
+                  <label class="radio-inline col-sm-2">适配设备</label>
+                  <div class="col-sm-9">
+                    <label class="radio-inline">
+                        <input type="radio" name="screen" checked="checked">单屏
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="screen">多屏
+                    </label>
+                  </div>        
+                </div>
+                
+                <div class="form-group">
+                  <label class="radio-inline col-sm-2">屏幕模式</label>
+                  <div class="col-sm-9">
+                    <label class="radio-inline">
+                        <input type="radio" name="mode" checked="checked" tp1_model="1">横屏
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="mode" tp1_model="2">竖屏
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="radio-inline col-sm-2">交互场景</label>
+                  <div class="col-sm-9">
+                    <select class="form-control" id="scene"> 
+                      <option>屏幕播放</option> 
+                      <option>讲解展示</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="radio-inline  col-sm-2">专辑名称</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control special-name" id="exampleInputUser1" placeholder="请输入专辑名称">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-offset-5">
+                    <button type="button" class="btn btn-primary create" id="create">确认创建</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+            <span>powered by <a href="http://112.124.123.169/" target="_Blank">合肥工业大学物联网实验室</a></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/Cktv/libs/jquery.js"></script>
+<script type="text/javascript" src="/Cktv/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Cktv/libs/layer-v2.2/layer/layer.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/common1_1.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/common/ajax.js"></script>
+<script type="text/javascript" src="/Cktv/src/scripts/display-manage/create-new.js"></script>
+</body>
+</html>
